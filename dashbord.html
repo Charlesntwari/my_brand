@@ -7,54 +7,52 @@
        <link rel="stylesheet" href="dashbord.css" type="text/css">
     </head>
     <body>
- <div id="dashbord">
-    <div class="container">
-        <div class="row">
-            <div class="dashbord-left">
-                <h2 class="sub-title">Dashbord</h2>
-                <div class="tab-titles bord">
-                    <p class="tab-links active-link formtab" onclick="opentab('add')">ADD BLOG</p>
-                    <p class="tab-links formtab" onclick="opentab('delete')">DELETE BLOG</p>
-                    <p class="tab-links formtab" onclick="opentab('update')">UPDATE BLOG</p>
-                </div>
-                <a href="#"class="btn">Log out</a>
-            </div>
-            <div class="dashbord-right">
-                <form class="tab-contents active-tab Add" id="add">
-                    <input type="text" name="Title" id="title" placeholder="Blog title" required>
-                    <textarea name="Description" id="description" rows="6" placeholder="Blog description"></textarea>
-                    <button type="submit" class="btn btn2" id="addBlog">POST</button>
-                </form>
-                <form class="tab-contents Delete" id="delete">
-                    <label for="id"></label>
-                    <input type="text" name="id" placeholder="Document id:" required>
-                    <button type="submit" class="btn btn2" id="deleteBlog">DELETE</button>
-                </form>
-                <form class="tab-contents Update" id="update">
-                    <label for="id"></label>
-                    <input type="text" name="id" placeholder="Document id:" required>
-                    <input type="text" name="Uptitle" id="uptitle" placeholder="New blog title">
-                    <textarea name="Description" id="description" rows="6" placeholder="New blog description"></textarea>
-                    <button type="submit" class="btn btn2" id="updateBlog">UPDATE</button>
-                </form>
-            </div>
+       <div id="dashbord">
+           <div class="container">
+               <div class="row">
+                   <div class="dashbord-left">
+                       <h2 class="sub-title">Dashbord</h2>
+                       <div class="tab-titles bord">
+                           <p class="tab-links active-link formtab" onclick="opentab('add')">ADD BLOG</p>
+                           <p class="tab-links formtab" onclick="opentab('delete')">DELETE BLOG</p>
+                           <p class="tab-links formtab" onclick="opentab('update')">UPDATE BLOG</p>
+                       </div>
+                       <a href="#"class="btn">Log out</a>
+                   </div>
+                   <div class="dashbord-right">
+                       <form class="tab-contents active-tab Add" id="add">
+                           <input type="text" name="Title" id="title" placeholder="Blog title" required>
+                           <textarea name="Description" id="description" rows="6" placeholder="Blog description"></textarea>
+                           <button type="submit" class="btn btn2" id="addBlog">POST</button>
+                       </form>
+                       <form class="tab-contents Delete" id="delete">
+                           <input type="text" name="id" placeholder="Document id:" required>
+                           <button type="submit" class="btn btn2" id="deleteBlog">DELETE</button>
+                       </form>
+                       <form class="tab-contents Update" id="update">
+                           <input type="text" name="id" placeholder="Document id:" required>
+                           <input type="text" name="Uptitle" id="uptitle" placeholder="New blog title">
+                           <textarea name="Description" id="description" rows="6" placeholder="New blog description"></textarea>
+                           <button type="submit" class="btn btn2" id="updateBlog">UPDATE</button>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </div>
 
-        </div>
-    </div>
- </div>
- <script>
-    const tabLinks = document.getElementsByClassName('tab-links');
-    const tabContents = document.getElementsByClassName('tab-contents');
-    function opentab(tabName){
-        for(tabLink of tabLinks){
-            tabLink.classList.remove('active-link');
-        }
-        for(tabContent of tabContents){
-            tabContent.classList.remove('active-tab');
-        }
-        event.currentTarget.classList.add('active-link');
-        document.getElementById(tabName).classList.add('active-tab');
-    }
- </script>
- </body>
+       <script>
+           const tabLinks = document.getElementsByClassName('tab-links');
+           const tabContents = document.getElementsByClassName('tab-contents');
+           function opentab(tabName){
+               for(tabLink of tabLinks){
+                   tabLink.classList.remove('active-link');
+                }
+               for(tabContent of tabContents){
+                   tabContent.classList.remove('active-tab');
+                }
+               event.currentTarget.classList.add('active-link');
+               document.getElementById(tabName).classList.add('active-tab');
+            }
+      </script>
+   </body>
 </html>
