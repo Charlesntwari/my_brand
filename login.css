@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background: #080808;
+    color: #fff;
+}
+.container{
+    padding: 10px 10%;
+}/* Admin */
+#admin{
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+.login h2{
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #fff;
+}
+form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 6px;
+}
+.btn{
+    display: block;
+    margin: 30px auto;
+    width: fit-content;
+    border: 2px #336699;
+    padding: 14px 50px;
+    border-radius: 100px;
+    text-decoration: none;
+    color: #fff ;
+    background:#336699;
+    cursor: pointer;
+}
