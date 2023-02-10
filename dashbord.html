@@ -3,6 +3,7 @@
 <html lang="en">
     <head>
        <meta charset="UTF-8">
+       <title>Charles | dashbord</title>
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <link rel="stylesheet" href="dashbord.css" type="text/css">
     </head>
@@ -15,9 +16,9 @@
                        <div class="tab-titles bord">
                            <p class="tab-links active-link formtab" onclick="opentab('add')">ADD BLOG</p>
                            <p class="tab-links formtab" onclick="opentab('delete')">DELETE BLOG</p>
-                           <p class="tab-links formtab" onclick="opentab('update')">UPDATE BLOG</p>
+                           <p class="tab-links formtab" onclick="opentab('users')">manage users</p>
                        </div>
-                       <a href="#"class="btn">Log out</a>
+                       <a href="index.html"class="btn">Log out</a>
                    </div>
                    <div class="dashbord-right">
                        <form class="tab-contents active-tab Add" id="add">
@@ -35,7 +36,36 @@
                            <textarea name="Description" id="description" rows="6" placeholder="New blog description"></textarea>
                            <button type="submit" class="btn btn2" id="updateBlog">UPDATE</button>
                        </form>
+                       <table class="tab-contents users" id="users">
+                       <tr>
+                           <th>Username</th>
+                           <th class="email">email</th>
+                           <th>Delete</th>
+                       </tr>
+                       <tr>
+                           <td>Alfreds Futterkiste</td>
+                           <td>Maria Anders@gmail.com</td>
+                           <td><button type="submit" class="btn btn3">DELETE</button></td>
+                       </tr>
+                       <tr>
+                           <td>Centro comercial Moctezuma</td>
+                           <td>Francisco Chang@gmail.com</td>
+                           <td><button type="submit" class="btn btn3">DELETE</button></td>
+                       </tr>
+                       <tr>
+                           <td>Ernst Handel</td>
+                           <td>Roland Mendel@gmail.com</td>
+                           <td><button type="submit" class="btn btn3">DELETE</button></td>
+                       </tr>
+                       <tr>
+                           <td>Island Trading</td>
+                           <td>Helen Bennett@gmail.com</td>
+                           <td><button type="submit" class="btn btn3">DELETE</button></td>
+                       </tr>
+                       </table>
                    </div>
+                   <table>
+                       
                </div>
            </div>
        </div>
