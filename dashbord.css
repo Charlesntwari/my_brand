@@ -112,6 +112,9 @@ form input, form textarea{
 .tab-links.active-link::after{
     width: 30%;
 }
+ table{
+    width: 100%;
+ }
 td {
   border: 1px solid #080808;
   text-align: left;
