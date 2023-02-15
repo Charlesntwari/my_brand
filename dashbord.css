@@ -15,9 +15,10 @@ body{
     display: flex; 
     justify-content: space-between;
     flex-wrap: wrap;
+    width:100%;
 }
 .sub-title{
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 600; 
     color: #fff;
 }
@@ -74,17 +75,28 @@ form input, form textarea{
     background:#336699;
     cursor: pointer;
 }
+.btn3{
+    margin: 2px auto;
+    width: fit-content;
+    border: 2px #336699;
+    padding: 8px 20px;
+    border-radius: 100px;
+    text-decoration: none;
+    color: #fff ;
+    background:#336699;
+    cursor: pointer;
+}
 .dashbord-left{
     flex-basis: 35%;
     background-color: #262626;
     border-radius: 10px;
-    padding: 30px 20px;
+    padding: 10px;
     width: 100%;
 }
 .dashbord-right{
     flex-basis: 60%;
     width: 100%;
-    height: 60vh;
+    height: 40vh;
 }
 .bord{
     display: block;
@@ -99,4 +111,28 @@ form input, form textarea{
 }
 .tab-links.active-link::after{
     width: 30%;
+}
+ table{
+    width: 100%;
+ }
+td {
+  border: 1px solid #080808;
+  text-align: left;
+  padding: 8px;
+  width: 0%;
+  height: 10px;
+}
+ th {
+  border: 1px solid #080808;
+  text-align: left;
+  padding: 8px;
+  width: 50%;
+}
+tr:nth-child(even) {
+  background-color: #262626;
+}
+@media only screen and (max-width: 800px){
+    .dashbord-left, .dashbord-right{
+        flex-basis: 100%;
+    }
 }

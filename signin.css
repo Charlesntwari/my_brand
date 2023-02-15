@@ -8,39 +8,36 @@ body{
     background: #080808;
     color: #fff;
 }
+.container{
+    padding: 10px 30px;
+    width: 40vw;
+}/* Admin */
 #admin{
     display: flex;
 	align-items: center;
 	justify-content: center;
 	min-height: 100vh;
 }
-.container{
-    padding: 10px 10%;
-}
-.log-in{
+.signin{
     background: #171717;
     border-radius: 20px;
     padding: 20px;
     margin: 10px;
 }
-.log-in h2{
+.signin h2{
     text-align: center;
     font-size: 35px;
     font-weight: 600;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #fff;
-}
-.signup{
-    color: #336699;
-    font-weight: 600;
 }
 form input, form textarea{
     width: 100%;
     border: 0;
     outline: none;
     background: #262626;
-    padding: 15px;
-    margin: 15px 0;
+    padding: 10px;
+    margin: 10px 0;
     color: #fff;
     font-size: 20px;
     border-radius: 6px;
@@ -56,4 +53,10 @@ form input, form textarea{
     color: #fff ;
     background:#336699;
     cursor: pointer;
+}
+@media only screen and (max-width: 800px){
+    .container{
+    padding: 10px 0px;
+    width: 80vw;
+}
 }
