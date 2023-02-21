@@ -24,6 +24,12 @@ body{
     padding: 20px;
     margin: 10px;
 }
+.signin a{
+    color: #336699;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
 .signin h2{
     text-align: center;
     font-size: 35px;
