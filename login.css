@@ -23,6 +23,12 @@ body{
     padding: 20px;
     margin: 10px;
 }
+.log-in a{
+    color: #336699;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
 .log-in h2{
     text-align: center;
     font-size: 35px;
