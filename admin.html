@@ -4,29 +4,28 @@
        <meta charset="UTF-8">
        <title>Charles | log in</title>
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="login.css" type="text/css">
+       <link rel="stylesheet" href="admin.css" type="text/css">
     </head>
     <body>
         <div id="admin">
             <div class="container">
                 <div class="log-in">
-                    <a href="index.html">Go Back</a>
-                    <form action="index.html" method="POST">
-                        <h2>Welcome</h2>
+                    <form action="dashbord.html" method="POST">
+                        <h2>ADMIN</h2>
                         <input type="text" name="userame" placeholder="Username">
                         <span></span>
                         <input type="password" name="password" placeholder="Your password">
                         <span></span>
                         <button type="submit" class="btn" id="login">Log in</button>
                     </form>
-                    <span>Don't have an account</span> <a href="signin.html" class=" signup">sign up</a>
+                    <a href="index.html">Go Back</a>
                 </div>        
             </div>
         </div>
         <script>
             window.onload = () =>{
-            this.sessionStorage.setItem("username", "Charles");
-            this.sessionStorage.setItem("password", "ntwari");
+            this.localStorage.setItem("username", "Charles");
+            this.localStorage.setItem("password", "ntwari");
             }
             var input = document.getElmentsByTagName('input');
             var login = document.getElmentsById('login');
@@ -35,7 +34,7 @@
             login.onClick = () =>
             {
                 if ((input[0].value != "") && (input[1].value != "")){
-                    if ((input[0].value == sessionStorage.getItem("username")) && (input[1].value == sessionStorage.getItem("password")))
+                    if ((input[0].value == localStorage.getItem("username")) && (input[1].value == localStorage.getItem("password")))
                     {
                         form.onsubmit = () => {return 1}
                     }
@@ -43,7 +42,7 @@
                 
                     else
                     {
-                        if(input[0].value != sessionStorage.getItem("username"))
+                        if(input[0].value != localStorage.getItem("username"))
                         {
                             input[0].nextElementSibling.textContent = "incorrect username";
                             setTimeout(() =>
@@ -51,7 +50,7 @@
                                input[0].nextElementSibling.textContent = "";  
                             }, 3000);
                         }
-                        if(input[1].value != sessionStorage.getItem("password"))
+                        if(input[1].value != localStorage.getItem("password"))
                         {
                             input[1].nextElementSibling.textContent = "incorrect password";
                             setTimeout(() => 

@@ -9,7 +9,7 @@ body{
     color: #fff;
 }
 .container{
-    padding: 100px 10%;
+    padding: 50px;
 }
 .row{
     display: flex; 
@@ -87,7 +87,7 @@ form input, form textarea{
     cursor: pointer;
 }
 .dashbord-left{
-    flex-basis: 35%;
+    flex-basis: 30%;
     background-color: #262626;
     border-radius: 10px;
     padding: 10px;
@@ -112,21 +112,18 @@ form input, form textarea{
 .tab-links.active-link::after{
     width: 30%;
 }
- table{
-    width: 100%;
- }
 td {
-  border: 1px solid #080808;
-  text-align: left;
-  padding: 8px;
-  width: 0%;
-  height: 10px;
-}
- th {
-  border: 1px solid #080808;
+  /* border: 1px solid #080808; */
   text-align: left;
   padding: 8px;
   width: 50%;
+  height: 10px;
+}
+ th{
+  border: 1px solid #080808;
+  text-align: left;
+  padding: 8px;
+  /* width: 20%; */
 }
 tr:nth-child(even) {
   background-color: #262626;

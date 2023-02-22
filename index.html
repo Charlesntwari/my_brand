@@ -12,14 +12,14 @@
       <div id="header">
           <div class="container">
               <nav>
-                  <h1 class="logo"><span>C</span>HARLES</h1>
+                  <h1 class="logo"><a href="admin.html" ><span>C</span>HARLES</a></h1>
                   <ul id="sidemenu">
                       <li><a href="#header" id="hom">Home</a></li>
                       <li><a href="#about" >About</a></li>
                       <li><a href="#work" >My work</a></li>
                       <li><a href="#Blog" >Blog</a></li>
                       <li><a href="#contacts" >Contact</a></li> 
-                      <li><a href="login.html" >Admin</a></li> 
+                      <li><a href="login.html" >Log in</a></li> 
                       <i class="fas fa-times" onclick="closemenu()"></i>
                   </ul>
                   <i class="fas fa-bars" onclick="openmenu()"></i>
@@ -159,11 +159,11 @@
                       <p> <i class="fas fa-paper-plane"></i>ntwarichar@gmail.com</p>
                       <p><i class="fas fa-phone-square-alt"></i>0786207360</p>
                       <div class="socail-media-icons">
-                          <a href=""><i class="fab fa-facebook"></i></a> 
                           <a href=""><i class="fab fa-twitter-sqaure"></i></a>     
                           <a href=""><i class="fab fa-linkedin"></i></a>
                           <a href=""><i class="fab fa-brands fa-instagram"></i></a> 
-                          <a href=""><i class="fa-brands fa-github"></i></a> 
+                          <a href="https://github.com/Charlesntwari" target="_blank"><i class="fa-brands fa-github"></i></a> 
+                          <a href=""><i class="fab fa-facebook"></i></a>
                       </div> 
                       <div>
                           <a href="#"class="btn btn2">SUBSCRIBE</a>
@@ -172,8 +172,11 @@
                   <div class="contact-right">
                       <form>
                           <input type="text" name="Name" id="name" placeholder="Your name" required>
+                          <span id="spanmssg" class="spanmssg namespan">*please enter valid name</span>
                           <input type="email" name="Email" id="email" placeholder="Your email" required>
+                          <span class="spanmssg emailspan">*Please enter valid email</span>
                           <textarea name="Message" id="textarea" rows="6" placeholder="Your message"></textarea>
+                          <span class="spanmssg mssgspan">*Please enter a message to send!</span>
                           <button type="submit" class="btn btn2">Submit</button>
                       </form>
                   </div>
@@ -204,11 +207,84 @@
           // declaring nav items:
               const hom = document.getElementById('hom');
               sidemenu.style.right = '0px';
-              hom.innerHTML = "<i class=\"fa-solid fa-house\"></i>";
             }
           function closemenu(){
               sidemenu.style.right = '-200px';
             }
+      </script>
+      <script>
+          //checking for a valid email, names and message
+          const emailCheck = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          const checkString = /^[a-zA-Z0-9]+$/;
+          // const mssgCheck =   /[^a-zA-Z0-9\s\:]*/;
+          //email, name and message variables
+          const name = document.getElementById('name');
+          const email = document.getElementById('email');
+          const message = document.getElementById('textarea');
+          const spans = document.querySelectorAll('.spanmssg');
+          const form = document.querySelector('form');
+          const resp = document.querySelector('#resp');
+          //form validation
+          form.addEventListener('submit',(e)=>
+            {
+             // e.preventDefault();
+             form.reset();
+             resp.style.display = "block";
+             setTimeout(function(){
+             resp.style.display = "none";
+             },5000)
+            })
+             //validating names and message
+          name.addEventListener('focusout', function()
+            {  
+              const checkString = /^[a-zA-Z0-9]+$/;
+              // const checkString2 = /^[a-z\sA-Z0-9]+$/ trying to check for spaced names
+              if(!checkString.test(name.value))
+               {
+                  spans[0].style.display = 'block';
+                  form.addEventListener('submit',(e)=>{
+                  e.preventDefault();
+                  })
+               }
+              else
+               { 
+                  spans[0].style.display = 'none' 
+               }
+           })
+            //validating email
+          email.addEventListener('focusout', function()
+          {
+            if(!emailCheck.test(email.value))
+            {
+                // alert('enter valid email');
+                spans[1].style.display = 'block';
+                form.addEventListener('submit',(e)=>
+                {
+                  e.preventDefault();
+                })
+            }
+            else
+            {
+                spans[1].style.display = 'none';
+            }
+         })
+          // validating message box
+         message.addEventListener('focusout', ()=>
+           {
+              const messageCheck = /^\s+/;
+              if( message.value ==="" || messageCheck.test(message.value))
+               {
+                  spans[2].style.display= 'block';
+                  form.addEventListener('submit',(e)=>
+                   {
+                      e.preventDefault();
+                   })
+               }
+              else
+               {
+                  spans[2].style.display= 'none';
+               }
+            })
       </script>
   </body>
 </html>
