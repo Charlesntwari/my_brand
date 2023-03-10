@@ -10,19 +10,35 @@
         <div id="admin">
             <div class="container">
                 <div class="signin">
-                    <form action="index.html">
+                    <form role="form" onsubmit="signUp(event)" autocomplete="off">
                         <h2>sign up</h2>
-                        <input type="text" name="Name" id="name" placeholder="full name" required>
-                        <input type="email" name="Email" id="email" placeholder="Your email" required>
-                        <input type="text" name="Name" id="name" placeholder="Username" required>
-                        <input type="password" name="Password" id="password" placeholder="Your password" required>
-                        <span>re-type password</span>
-                        <input type="password" name="Password" id="password" placeholder="Your password" required>
-                        <button type="submit" class="btn" id="login">Sign in</button>
+                        <div class="input-Control">
+                        <input type="text" name="fname" id="fname" placeholder="full name">
+                        <div class="error"></div>
+                        </div>
+                        <div class="input-Control">
+                        <input type="email" name="email" id="email" placeholder="Your email">
+                        <div class="error"></div>
+                        </div>
+                        <div class="input-Control">
+                        <input type="text" name="lname" id="lname" placeholder="Username">
+                        <div class="error"></div>
+                        </div>
+                        <div class="input-Control">
+                        <input type="password" name="Password" id="pwd" placeholder="Your password">
+                        <div class="error"></div>
+                        </div>
+                        <!-- <div class="input-Control">
+                        <label>re-type password</label>
+                        <input type="password" name="Password" id="password2" placeholder="Your password">
+                        <div class="error"></div>
+                        </div> -->
+                        <button class="btn" id="sign-in">Sign in</button>
                     </form>
                     <a href="index.html">Go Back</a>
                 </div>        
             </div>
         </div>
+        <script type="text/javascript" src="authentication.js"></script>
     </body>
 </html>
