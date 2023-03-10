@@ -10,6 +10,7 @@
     <nav>
       <h1>All Blogs</h1>
       <a href="create.html">Add a new blog</a>
+      <a href="dashbord.html">Go Back</a>
     </nav>
     <form class="search">
       <input type="text" name="term" placeholder="search term">
@@ -40,6 +41,10 @@
                   <p><small>${post.likes} likes</small></p>
                   <p>${post.body.slice(0, 200)}</p>
                   <a href="/details.html?id=${ post.id }">Read more...</a>
+                  <div>
+                    <button class="btn deleteBtn" onclick="deleteBtn(${post.id})">delete</button>
+                    <button class="btn updateBtn" onclick="window.location = '/create.html?id=${post.id}'">update</button>
+                  </div>
               </div>
           `
       })
@@ -50,4 +55,12 @@
       renderPosts(searchForm.term.value.trim())
   })
   window.addEventListener('DOMContentLoaded', () => renderPosts());
+   async function deleteBtn(id) {
+    
+        await fetch(`http://localhost:3000/posts/${id}`, {
+            method: 'DELETE'
+        });
+    
+}
+
 </script>

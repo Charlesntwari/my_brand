@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>JSON Server</title>
+    <title>Create Post</title>
   </head>
   <body>
     <h1>Create a New Blog</h1>
-    <form>
-      <input type="text" name="title" required placeholder="Blog title">
-      <textarea name="body" required placeholder="Blog body"></textarea>
+    <form id="add">
+      <input type="text" name="title" id="title" required placeholder="Blog title">
+      <textarea name="body" id="body" required placeholder="Blog body"></textarea>
       <button class="btn">Create</button>
+      <a class="btn" href="dashbord.html">Go Back</a>
     </form>
-    <script>const form = document.querySelector('form');
+    <script>
+    const form = document.querySelector('form');
       const createPost = async (e) => {
         e.preventDefault();
         const doc = {
@@ -29,6 +31,22 @@
         window.location.replace('/all.html');
       }
       form.addEventListener('submit', createPost);
+    </script>
+    <script>
+      let article_id = new URLSearchParams(window.location.search).get("id");
+let form2 = document.getElementById("add");
+if(article_id !== null ){
+  console.log("BLog ID = "+article_id);
+  call_article();
+  
+
+}
+async function call_article() {
+  let res = await fetch(`http://localhost:3000/posts/${article_id}`)
+  article = await res.json()
+form2.title.value = article.title;
+form2.body.value = article.body;
+}
     </script>
   </body>
 </html>
