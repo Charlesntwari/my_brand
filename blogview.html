@@ -6,34 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="blogview.css" type="text/css" />
     <script src="https://kit.fontawesome.com/3318aa34ff.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   </head>
   <body>
     <div id="view">
-      <div class="container">
-        <div class="view">
-          <img src="./images/socialmedia.jfif" alt="blog One" />
-          <div class="layer">
-            <h3>Social Media App</h3>
-            <p>
-              <span>Social media apps are applications which can either bedownloaded and stored on your phone or tablet, or streamed
-              through your internet browser.</span>
-              <span>The term social media refers to a computer-based technology
-              that facilitates the sharing of ideas, thoughts, and information
-              through virtual networks and communities. Social media is
-              internet-based and gives users quick electronic communication of
-              content, such as personal information, documents, videos, and
-              photos. Users engage with social media via a computer, tablet,
-              or smartphone via web-based software or applications. While
-              social media is ubiquitous in America and Europe, Asian
-              countries like Indonesia lead the list of social media
-              usage.</span>
-              <span>More than 4.5 billion people use social media, as of October2021.</span>
-            </p>
-          </div>
-          <i class="fa-duotone fa-comments"></i>
-          <i class="fa-duotone fa-heart"></i>
-        </div>
+      <div class="container" id="container">
+
       </div>
+      <form>
+        <textarea name="opinion" placeholder="comment"></textarea>
+        <button class="btn3">send</button>
+      </form>
+
     </div>
+     <div id="comment" class="com">
+    
+      </div>
+    
+      <script>
+        const id = new URLSearchParams(window.location.search).get("id");
+        const container = document.querySelector("#container");
+        const getOneById = async () => {
+          const url = await fetch(" http://localhost:3000/posts/" + id);
+          const res = await url.json();
+          const temp = `<div class="view">
+              <img src="./images/socialmedia.jfif" alt="blog One" />
+              <div class="layer">
+                <h3>${res.title}</h3>
+                <p>${res.body}</p>
+              </div>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-comment"></i>
+            </div>
+            `;
+          container.innerHTML = temp;
+        };
+        window.addEventListener("DOMContentLoaded", () => getOneById());
+    </script>
+    <!-- getting comment -->
+      <script>
+        const containe = document.querySelector("#comment");
+        const getComment = async () => {
+          const url = await fetch(" http://localhost:3000/comment");
+          const res = await url.json();
+          let temp ='' ;
+          res.forEach(element => {
+            temp +=`<div>
+          <p>${element.opinion}</p>
+          </div>
+            `;
+          }); 
+          containe.innerHTML = temp;
+        };
+        window.addEventListener("DOMContentLoaded", () => getComment());
+      </script>
+      <!-- create comment -->
+      <script>
+        const form = document.querySelector('form');
+      const createPost = async (e) => {
+        e.preventDefault();
+        form.reset();
+        const doc = {
+            opinion: form.opinion.value,
+        }
+        await fetch('http://localhost:3000/comment', {
+            method: 'POST',
+            body: JSON.stringify(doc),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        //  window.location.replace('/blogview.html');
+      }
+      form.addEventListener('submit', createPost);
+      </script>
   </body>
 </html>
+

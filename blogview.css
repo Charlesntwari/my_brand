@@ -31,3 +31,11 @@ body{
     margin-top: 30px;
     margin-bottom: 20px;
 }
+.view i{
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color: #fff;
+    display: inline-block;
+    transition: transform 0.5s;
+}
