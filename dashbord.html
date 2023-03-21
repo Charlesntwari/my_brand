@@ -1,106 +1,62 @@
 <!-- Dashbord -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-       <meta charset="UTF-8">
-       <title>Charles | dashbord</title>
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="dashbord.css" type="text/css">
-    </head>
-    <body>
-       <div id="dashbord">
-           <div class="container">
-               <div class="row">
-                   <div class="dashbord-left">
-                       <h2 class="sub-title">Dashbord</h2>
-                       <div class="tab-titles bord">
-                           <p class="tab-links active-link formtab" onclick="opentab('add')">Create Blog</p>
-                           <p class="tab-links formtab" onclick="opentab('blogs')">Blogs</p>
-                           <p class="tab-links formtab" onclick="opentab('users')">Users</p>
-                       </div>
-                       <a href="index.html"class="btn">Log out</a>
-                   </div>
-                   <div class="dashbord-right">
-                       <form class="tab-contents active-tab Add" id="add">
-                           <input type="text" name="image" id="title" placeholder="Blog image" required>
-                           <input type="text" name="Title" id="title" placeholder="Blog title" required>
-                           <textarea name="Description" id="description" rows="6" placeholder="Blog description"></textarea>
-                           <button type="submit" class="btn btn2" id="addBlog">POST</button>
-                       </form>
-                       <table class="tab-contents blogs" id="blogs">
-                            <tr>
-                               <th style="width:70%">Blog Title</th>
-                               <th>Update</th>
-                               <th>Delete</th>
-                            </tr>
-                            <tr>
-                               <td>Social Media App</td>
-                               <td><button type="submit" class="btn btn3">UPDATE</button></td>
-                               <td><button type="submit" class="btn btn3">DELETE</button></td>
-                            </tr>
-                            <tr>
-                               <td>Digital Marketing</td>
-                               <td><button type="submit" class="btn btn3">UPDATE</button></td>
-                               <td><button type="submit" class="btn btn3">DELETE</button></td>
-                            </tr>
-                            <tr>
-                               <td>Digital Marketing</td>
-                               <td><button type="submit" class="btn btn3">UPDATE</button></td>
-                               <td><button type="submit" class="btn btn3">DELETE</button></td>
-                            </tr>
-                            <tr>
-                               <td>online Shopping App</td>
-                               <td><button type="submit" class="btn btn3">UPDATE</button></td>
-                               <td><button type="submit" class="btn btn3">DELETE</button></td>
-                            </tr>
-                       </table>
-                   
-                    
-                       <table class="tab-contents users" id="users">
-                            <tr>
-                               <th style="width:40%">Username</th>
-                               <th style="width:40%">email</th>
-                               <th>Delete</th>
-                            </tr>
-                            <tr>
-                               <td>Alfreds Futterkiste</td>
-                               <td>Maria Anders@gmail.com</td>
-                               <td><button type="submit" class="btn btn3">DELETE</button></td>
-                            </tr>
-                            <tr>
-                               <td>Centro comercial Moctezuma</td>
-                               <td>Francisco Chang@gmail.com</td>
-                               <td><button type="submit" class="btn btn3">DELETE</button></td>
-                            </tr>
-                            <tr>
-                               <td>Ernst Handel</td>
-                               <td>Roland Mendel@gmail.com</td>
-                               <td><button type="submit" class="btn btn3">DELETE</button></td>
-                            </tr>
-                            <tr>
-                               <td>Island Trading</td>
-                               <td>Helen Bennett@gmail.com</td>
-                               <td><button type="submit" class="btn btn3">DELETE</button></td>
-                            </tr>
-                       </table>
-                   </div>       
-               </div>
-           </div>
-       </div>
-
-       <script>
-           const tabLinks = document.getElementsByClassName('tab-links');
-           const tabContents = document.getElementsByClassName('tab-contents');
-           function opentab(tabName){
-               for(tabLink of tabLinks){
-                   tabLink.classList.remove('active-link');
-                }
-               for(tabContent of tabContents){
-                   tabContent.classList.remove('active-tab');
-                }
-               event.currentTarget.classList.add('active-link');
-               document.getElementById(tabName).classList.add('active-tab');
-            }
+   <head>
+      <meta charset="UTF-8">
+      <title>Charles | dashbord</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="dashbord.css" type="text/css">
+   </head>
+   <body>
+      <div id="dashbord">
+         <div class="container">
+            <div class="row">
+               <div class="dashbord-left">
+                  <h2 class="sub-title">Dashbord</h2>
+                  <div class="tab-titles bord">
+                     <p class="tab-links active-link formtab" onclick="opentab('users')">Users</p>
+                     <p class="tab-links formtab" onclick="opentab()"><a href="create.html">Create Blog</a></p>
+                     <p class="tab-links formtab" onclick="opentab()"><a href="all.html" >Manage Blogs</a></p>
+                     <p class="tab-links formtab" onclick="opentab()"><a href="Query.html" >Queries</a></p>
+                  </div>
+                  <a href="index.html"class="btn">Log out</a>
+               </div> 
+                  <form onsubmit="displayData()">
+                     <table class="tab-contents active-tab users" id="users">
+                        <thead>
+                           <tr>
+                           <th>No</th>
+                           <th>Full Name</th>
+                           <th>Username</th>
+                           <th>email</th>
+                           <th>password</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                     </table>
+                  </form>
+               </div>           
+            </div>
+         </div>
+      </div>
+   
+      <script>
+         const tabLinks = document.getElementsByClassName('tab-links');
+         const tabContents = document.getElementsByClassName('tab-contents');
+         function opentab(tabName){
+            for(tabLink of tabLinks){
+                  tabLink.classList.remove('active-link');
+               }
+            for(tabContent of tabContents){
+                  tabContent.classList.remove('active-tab');
+               }
+            event.currentTarget.classList.add('active-link');
+            document.getElementById(tabName).classList.add('active-tab');
+         }
       </script>
+      <script type="text/javascript" src="authentication.js"></script>
+      <script>displayData()</script>
    </body>
 </html>

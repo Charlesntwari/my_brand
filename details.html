@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>JSON Server</title>
+  </head>
+  <body>
+    <div class="details">
+      <!-- inject blog details here -->
+    </div>
+    <button class="btn delete">Delete</button>
+    <!-- <script src="js/details.js"></script> -->
+  </body>
+</html>
+<script>
+  const id = new URLSearchParams(window.location.search).get('id');
+  const container = document.querySelector('.details');
+  const deleteBtn = document.querySelector('.delete');
+
+  const renderDetails = async () => {
+    const res = await fetch(`http://localhost:3000/posts/${id}`);
+    const post = await res.json();
+
+    const template = `
+        <h1>${post.title}</h1>
+        <p>${post.body}</p>
+        // <form><textarea name="comment" id="comment" placeholder="comment"></textarea></form>
+        `
+    container.innerHTML = template;
+  }
+  deleteBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    await fetch(`http://localhost:3000/posts/${id}`, {
+        method: 'DELETE'
+    });
+    window.location.replace('/all.html');
+  })
+  window.addEventListener('DOMContentLoaded', () => renderDetails());
+</script>

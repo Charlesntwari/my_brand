@@ -121,16 +121,16 @@
       <div id="Blog">
           <div class="container">
               <h2 class="sub-title">Blog</h2>
-              <div class="blog-list">
-                  <div class="blog">
+              <div class="blog-list" id="blog-list">
+                  <!-- <div class="blog">
                       <img src="./images/socialmedia.jfif" alt="blog One">
                       <div class="layer">
                           <h3>Social Media App</h3>
                           <p>Social media apps are applications which can either be downloaded and stored on your phone or tablet, or streamed through your internet browser.</p>
                           <a href="blogview.html" class="btn">Learn more</a>
                       </div>
-                  </div>
-                  <div class="blog">
+                  </div> -->
+                  <!-- <div class="blog">
                       <img src="./images/marketing.jfif" alt="blog Two">
                       <div class="layer">
                           <h3>Digital Marketing</h3>
@@ -145,7 +145,7 @@
                           <p>Shopping apps are designed to make it easy for customers to find and buy the products they need.</p>
                           <a href="#" class="btn">Learn more</a>
                       </div>
-                  </div>
+                  </div> -->
               </div>
               <a href="#" class="btn">View more</a>
           </div>
@@ -170,14 +170,14 @@
                       </div>
                   </div>  
                   <div class="contact-right">
-                      <form>
-                          <input type="text" name="Name" id="name" placeholder="Your name" required>
+                      <form onsubmit="sms()">
+                          <input type="text" name="name" id="names" placeholder="Your name" required>
                           <span id="spanmssg" class="spanmssg namespan">*please enter valid name</span>
-                          <input type="email" name="Email" id="email" placeholder="Your email" required>
+                          <input type="email" name="email" id="emails" placeholder="Your email" required>
                           <span class="spanmssg emailspan">*Please enter valid email</span>
-                          <textarea name="Message" id="textarea" rows="6" placeholder="Your message"></textarea>
+                          <textarea name="message" id="textarea" rows="6" placeholder="Your message"></textarea>
                           <span class="spanmssg mssgspan">*Please enter a message to send!</span>
-                          <button type="submit" class="btn btn2">Submit</button>
+                          <button class="btn btn2">Submit</button>
                       </form>
                   </div>
               </div>
@@ -285,6 +285,49 @@
                   spans[2].style.display= 'none';
                }
             })
+      </script>
+      <!-- Querries -->
+      <script>
+        const form1 = document.querySelector("form");
+        const sms= async (e) => {
+        e.preventDefault();
+        const content = {
+            name: form1.name.value,
+            email: form1.email.value,
+            message: form1.message.value,
+        };
+        await fetch("http://localhost:3000/query", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(content),
+        });
+        alert("sent successfully");
+        };
+        form1.addEventListener("submit", sms);
+      </script>
+      <!-- Blog scrippt -->
+      <script>
+        const container = document.querySelector("#blog-list");
+            const renderPost = async ()=>{
+                const url = ('http://localhost:3000/posts');
+                const res = await fetch(url);
+                const post = await  res.json();
+                //console.log(post)
+                let blog =''
+                post.forEach(posts => {
+                    blog +=`
+                     <div class="blog">
+                      <img src="./images/socialmedia.jfif" alt="blog One">
+                      <div class="layer">
+                          <h3>${posts.title}</h3>
+                          <p>${posts.body.slice(0,100)}...</p>
+                          <a href="blogview.html?id=${posts.id}" class="btn">learn more</a>
+                      </div>
+                  </div>`
+                });
+                container.innerHTML = blog
+            }
+            addEventListener('DOMContentLoaded' ,()=>renderPost())
       </script>
   </body>
 </html>
