@@ -10,14 +10,14 @@
         <div id="admin">
             <div class="container">
                 <div class="log-in">
-                    <form onsubmit="signIn(event) ">
+                    <form name="createAccount"id="createAccount"onsubmit="signIn(event) ">
                         <h2>ADMIN</h2>
                         <div id="formdata">
                         <input type="text" name="email" id="email" placeholder="email">
                         <span></span>
                         </div>
                         <div id="formdata">
-                        <input type="password" name="password" id="pwd" placeholder="Your password">
+                        <input type="password" name="password" id="password" placeholder="Your password">
                         <span></span>
                         </div>
                         <div id="formdata">
@@ -28,7 +28,7 @@
                 </div>        
             </div>
         </div>
-        <script>
+        <!-- <script>
             function signIn(e) {
             let email = document.getElementById("email").value;
             let pwd = document.getElementById("pwd").value;
@@ -48,6 +48,38 @@
             }
             e.preventDefault();
             }
-        </script>
+        </script> -->
+       <script>
+        const signIn = (e) => {
+            e.preventDefault();
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            var raw = JSON.stringify({
+            // fullname: document.createAccount.fullname.value,
+            email: document.createAccount.email.value,
+            // username: document.createAccount.username.value,
+            password: document.createAccount.password.value,
+            });
+            var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+            };
+            fetch("http://localhost:8000/login", requestOptions)
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result);
+                if (result.status == 200) {
+                alert("Your logged in Successfuly");
+                window.open("dashbord.html");
+                } else {
+                alert(result.message);
+                return false;
+                }
+            })
+            .catch((error) => console.log("error", error));
+          };
+       </script> 
     </body>
 </html>
