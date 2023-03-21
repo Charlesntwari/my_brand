@@ -10,10 +10,10 @@
         <div id="admin">
             <div class="container">
                 <div class="signin">
-                    <form role="form" onsubmit="signUp(event)" autocomplete="off">
+                    <form role="form" name="createAccount"id="createAccount"onsubmit="signUpForm(event);">
                         <h2>sign up</h2>
                         <div class="input-Control">
-                        <input type="text" name="fname" id="fname" placeholder="full name">
+                        <input type="text" name="fullname" id="fullname" placeholder="full name">
                         <div class="error"></div>
                         </div>
                         <div class="input-Control">
@@ -21,11 +21,11 @@
                         <div class="error"></div>
                         </div>
                         <div class="input-Control">
-                        <input type="text" name="lname" id="lname" placeholder="Username">
+                        <input type="text" name="username" id="username" placeholder="Username">
                         <div class="error"></div>
                         </div>
                         <div class="input-Control">
-                        <input type="password" name="Password" id="pwd" placeholder="Your password">
+                        <input type="password" name="Password" id="password" placeholder="Your password">
                         <div class="error"></div>
                         </div>
                         <!-- <div class="input-Control">
@@ -39,6 +39,39 @@
                 </div>        
             </div>
         </div>
-        <script type="text/javascript" src="authentication.js"></script>
+        <!-- <script type="text/javascript" src="authentication.js"></script> -->
+        <script>
+      const signUpForm = (e) => {
+        e.preventDefault();
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var raw = JSON.stringify({
+          fullname: document.createAccount.fullname.value,
+          email: document.createAccount.email.value,
+          username: document.createAccount.username.value,
+          password: document.createAccount.password.value,
+        });
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
+        };
+        fetch("http://localhost:8000/signup", requestOptions)
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            if (result.status == 201) {
+              alert("Your Account created Successfuly");
+              window.open("login.html", "_self");
+            } else {
+              alert(result.message);
+              return false;
+            }
+          })
+          .catch((error) => console.log("error", error));
+      };
+    </script>
     </body>
 </html>
+
