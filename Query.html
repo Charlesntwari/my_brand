@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashbord.css" type="text/css">
+    <title>JSON Server</title>
+  </head>
+  <body>
+    <div class="container-query">
+    <div class="query-page">
+        <a class="btn" href="dashbord.html">Go Back</a>
+        <form onsubmit="sms()">
+            <table id="querry">
+              <thead>
+                <tr>
+                <th>No</th>
+                <th>Full Name</th>
+                <th>email</th>
+                <th>message</th>
+                <th>action</th>
+                </tr>
+              </thead>
+              <tbody>
+              
+              </tbody>
+            </table>
+          </form>
+     
+    </div>
+    </div>
+  <script>
+    const containerQuery = document.querySelector(".query-page");
+// const id = new URLSearchParams(window.location.search).get('id');
+//const deleteBtn = document.querySelector('.query-btn')
+    const getQuery = async () => {
+    const url = await fetch(" http://localhost:3000/query");
+    const res = await url.json();
+    let queryContent = "";
+
+    res.forEach((data) => {
+    queryContent += `
+    <div class="contact">
+    <div class="contact-right">
+    <h5 class="user-name">${data.name}</h5>
+    <h5 class="user-email">${data.email}</h5>
+    <p>${data.message}</p>
+    <a href class="query-btn" onclick=deleteBtn(${data.id})>Delete</a>
+
+
+    </div>
+    </div>
+    `;
+    });
+    containerQuery.innerHTML = queryContent;
+    };
+
+    const deleteBtn = async (id) => {
+    const res = await fetch("http://localhost:3000/query/" + id, {
+    method: "DELETE",
+    });
+
+    alert("Are you sure You want to delete it.");
+    };
+
+    window.addEventListener("DOMContentLoaded", () => getQuery());
+  </script>
+  </body>
+</html>

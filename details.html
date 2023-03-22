@@ -20,19 +20,20 @@
   const deleteBtn = document.querySelector('.delete');
 
   const renderDetails = async () => {
-    const res = await fetch(`http://localhost:3000/posts/${id}`);
+    console.log(id);
+    const res = await fetch(`http://localhost:8000/blogs/${id}`);
     const post = await res.json();
-
+    console.log(post);
     const template = `
-        <h1>${post.title}</h1>
-        <p>${post.body}</p>
-        // <form><textarea name="comment" id="comment" placeholder="comment"></textarea></form>
+        <h1>${post.data.title}</h1>
+        <p>${post.data.body}</p>
+        <img src = ${post.data.image}>
         `
     container.innerHTML = template;
   }
   deleteBtn.addEventListener('click', async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:3000/posts/${id}`, {
+    await fetch(`http://localhost:8000/blogs/${id}`, {
         method: 'DELETE'
     });
     window.location.replace('/all.html');

@@ -11,42 +11,67 @@
     <form id="add">
       <input type="text" name="title" id="title" required placeholder="Blog title">
       <textarea name="body" id="body" required placeholder="Blog body"></textarea>
+      <input type="file" name="image" id="image" placeholder="Blog image">
       <button class="btn">Create</button>
       <a class="btn" href="dashbord.html">Go Back</a>
     </form>
     <script>
-    const form = document.querySelector('form');
+      let article_id = new URLSearchParams(window.location.search).get("id");
+      let token = localStorage.getItem('token')
+      let token_parsed = JSON.parse(token)
+     const form = document.querySelector('form');
       const createPost = async (e) => {
         e.preventDefault();
         const doc = {
             title: form.title.value,
             body: form.body.value,
-            likes: 1
         }
-        await fetch('http://localhost:3000/posts', {
+        await fetch('http://localhost:8000/blog', {
             method: 'POST',
             body: JSON.stringify(doc),
-            headers: { 'Content-Type': 'application/json' }
+            headers: { Authorization: `Bearer ${token_parsed}`,'Content-Type': 'application/json' }
         });
-        window.location.replace('/all.html');
+         window.location.replace('/all.html');
       }
-      form.addEventListener('submit', createPost);
+       const updateBlog = async (e) => {
+        e.preventDefault();
+        const doc = {
+            image:form.image.value,
+            title: form.title.value,
+            body: form.body.value,
+        }
+        await fetch(`http://localhost:8000/blogs/${article_id}`, {
+            method: 'PUT',
+            body: JSON.stringify(doc),
+            headers: {'Content-Type': 'application/json' }
+        });
+         window.location.replace('/all.html');
+      }
+      form.addEventListener('submit',()=>{
+        if(article_id !== null) {
+          updateBlog()
+
+        }
+        else{
+          createPost()
+        }
+      });
     </script>
     <script>
-      let article_id = new URLSearchParams(window.location.search).get("id");
-let form2 = document.getElementById("add");
-if(article_id !== null ){
-  console.log("BLog ID = "+article_id);
-  call_article();
+      // let article_id = new URLSearchParams(window.location.search).get("id");
+// let form2 = document.getElementById("add");
+// if(article_id !== null ){
+//   console.log("BLog ID = "+article_id);
+//   call_article();
   
 
-}
-async function call_article() {
-  let res = await fetch(`http://localhost:3000/posts/${article_id}`)
-  article = await res.json()
-form2.title.value = article.title;
-form2.body.value = article.body;
-}
-    </script>
+// }
+// async function call_article() {
+//   let res = await fetch(`http://localhost:8000/blogs/${article_id}`)
+//   article = await res.json()
+// form2.title.value = article.title;
+// form2.body.value = article.body;
+// }
+//     </script>
   </body>
 </html>

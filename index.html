@@ -296,7 +296,7 @@
             email: form1.email.value,
             message: form1.message.value,
         };
-        await fetch("http://localhost:3000/query", {
+        await fetch("http://localhost:8000/query", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(content),
@@ -309,22 +309,24 @@
       <script>
         const container = document.querySelector("#blog-list");
             const renderPost = async ()=>{
-                const url = ('http://localhost:3000/posts');
+                const url = ('http://localhost:8000/blogs');
                 const res = await fetch(url);
                 const post = await  res.json();
-                //console.log(post)
+                console.log(post)
                 let blog =''
-                post.forEach(posts => {
+                // post.data.forEach(posts => {
+                    for (let i = 0;i<3;i++){
+                     console.log(post.data[i]);
                     blog +=`
                      <div class="blog">
-                      <img src="./images/socialmedia.jfif" alt="blog One">
+                      <img src = ${post.data[i].image}>
                       <div class="layer">
-                          <h3>${posts.title}</h3>
-                          <p>${posts.body.slice(0,100)}...</p>
-                          <a href="blogview.html?id=${posts.id}" class="btn">learn more</a>
+                          <h3>${post.data[i].title}</h3>
+                          <p>${post.data[i].body.slice(0,100)}...</p>
+                          <a href="blogview.html?id=${post.data[i]._id}" class="btn">learn more</a>
                       </div>
                   </div>`
-                });
+                };
                 container.innerHTML = blog
             }
             addEventListener('DOMContentLoaded' ,()=>renderPost())

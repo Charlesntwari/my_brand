@@ -27,13 +27,13 @@
         const id = new URLSearchParams(window.location.search).get("id");
         const container = document.querySelector("#container");
         const getOneById = async () => {
-          const url = await fetch(" http://localhost:3000/posts/" + id);
+          const url = await fetch(" http://localhost:8000/blogs/" + id);
           const res = await url.json();
           const temp = `<div class="view">
-              <img src="./images/socialmedia.jfif" alt="blog One" />
+              <img src="${res.data.image}" />
               <div class="layer">
-                <h3>${res.title}</h3>
-                <p>${res.body}</p>
+                <h3>${res.data.title}</h3>
+                <p>${res.data.body}</p>
               </div>
               <i class="fa-solid fa-heart"></i>
               <i class="fa-solid fa-comment"></i>
@@ -47,7 +47,7 @@
       <script>
         const containe = document.querySelector("#comment");
         const getComment = async () => {
-          const url = await fetch(" http://localhost:3000/comment");
+          const url = await fetch(" http://localhost:8000/blogs/:id/comment");
           const res = await url.json();
           let temp ='' ;
           res.forEach(element => {
@@ -69,7 +69,7 @@
         const doc = {
             opinion: form.opinion.value,
         }
-        await fetch('http://localhost:3000/comment', {
+        await fetch('http://localhost:8000/blogs/:id/comment', {
             method: 'POST',
             body: JSON.stringify(doc),
             headers: { 'Content-Type': 'application/json' }
