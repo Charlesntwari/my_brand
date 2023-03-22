@@ -1,8 +1,8 @@
 const signUp = (e) => {
-  let fname = document.getElementById("fname").value;
-  let lname = document.getElementById("lname").value;
+  let fname = document.getElementById("fullname").value;
+  let lname = document.getElementById("username").value;
   let email = document.getElementById("email").value;
-  let pwd = document.getElementById("pwd").value;
+  let pwd = document.getElementById("password").value;
   let formData = JSON.parse(localStorage.getItem("formData")) || [];
   let exist =
     formData.length &&
@@ -23,15 +23,17 @@ const signUp = (e) => {
   e.preventDefault();
 };
 let tbody = document.querySelector("tbody");
-function displayData() {
+async function displayData() {
   tbody.innerHTML = "";
-  const users = JSON.parse(localStorage.getItem("formData"));
+  const response=await fetch('http://localhost:8000/users')
+  const res= await response.json()
+  const users = res.data
   users.forEach((user, i) => {
     tbody.innerHTML += `<tr>
    <td>${++i}</td>
-   <td>${user.fname}</td>
-   <td>${user.lname}</td>
+   <td>${user.fullname}</td>
    <td>${user.email}</td>
+   <td>${user.username}</td>
    <td>${user.pwd}</td>
    <td>
    <button class="btn3" onclick="deleteUser('${user.email}')">Delete</button>
@@ -73,4 +75,25 @@ function signIn(e) {
     }
   }
   e.preventDefault();
+}
+
+
+let tbbody = document.querySelector("tbody");
+async function displayquery() {
+  tbody.innerHTML = "";
+  const response = await fetch("http://localhost:8000/querries");
+  const res = await response.json();
+  const users = res.data;
+  users.forEach((user, i) => {
+    tbbody.innerHTML += `<tr>
+   <td>${++i}</td>
+   <td>${user.name}</td>
+   <td>${user.email}</td>
+   <td>${user.message}</td>
+   <td>
+   <button class="btn3" onclick="deleteUser('${user.email}')">Delete</button>
+   </td>
+   </tr>
+   `;
+  });
 }

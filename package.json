@@ -1,0 +1,19 @@
+{
+  "name": "my_brand",
+  "version": "1.0.0",
+  "description": "fake rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charlesntwari/my_brand.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Charlesntwari/my_brand/issues"
+  },
+  "homepage": "https://github.com/Charlesntwari/my_brand#readme"
+}
