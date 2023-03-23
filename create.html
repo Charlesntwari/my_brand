@@ -1,77 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Create Post</title>
   </head>
   <body>
     <h1>Create a New Blog</h1>
     <form id="add">
-      <input type="text" name="title" id="title" required placeholder="Blog title">
-      <textarea name="body" id="body" required placeholder="Blog body"></textarea>
-      <input type="file" name="image" id="image" placeholder="Blog image">
-      <button class="btn">Create</button>
+      <input
+        type="text"
+        name="title"
+        id="title"
+        required
+        placeholder="Blog title"
+      />
+      <textarea
+        name="body"
+        id="body"
+        required
+        placeholder="Blog body"
+      ></textarea>
+      <input type="file" name="image" id="image" placeholder="Blog image" />
+      <button onclick="createPost()" class="btn">Create</button>
       <a class="btn" href="dashbord.html">Go Back</a>
     </form>
     <script>
       let article_id = new URLSearchParams(window.location.search).get("id");
-      let token = localStorage.getItem('token')
-      let token_parsed = JSON.parse(token)
-     const form = document.querySelector('form');
+      let token = localStorage.getItem("token");
+      let token_parsed = JSON.parse(token);
+      const form = document.querySelector("form");
       const createPost = async (e) => {
         e.preventDefault();
         const doc = {
-            title: form.title.value,
-            body: form.body.value,
-        }
-        await fetch('http://localhost:8000/blog', {
-            method: 'POST',
-            body: JSON.stringify(doc),
-            headers: { Authorization: `Bearer ${token_parsed}`,'Content-Type': 'application/json' }
+          title: form.title.value,
+          body: form.body.value,
+        };
+        await fetch("http://localhost:8000/blog", {
+          method: "POST",
+          body: JSON.stringify(doc),
+          headers: {
+            Authorization: `Bearer ${token_parsed}`,
+            "Content-Type": "application/json",
+          },
         });
-         window.location.replace('/all.html');
-      }
-       const updateBlog = async (e) => {
+        window.location.replace("/all.html");
+      };
+      const updateBlog = async (e) => {
         e.preventDefault();
         const doc = {
-            image:form.image.value,
-            title: form.title.value,
-            body: form.body.value,
-        }
+          image: form.image.value,
+          title: form.title.value,
+          body: form.body.value,
+        };
         await fetch(`http://localhost:8000/blogs/${article_id}`, {
-            method: 'PUT',
-            body: JSON.stringify(doc),
-            headers: {'Content-Type': 'application/json' }
+          method: "PUT",
+          body: JSON.stringify(doc),
+          headers: { "Content-Type": "application/json" },
         });
-         window.location.replace('/all.html');
-      }
-      form.addEventListener('submit',()=>{
-        if(article_id !== null) {
-          updateBlog()
-
-        }
-        else{
-          createPost()
+        window.location.replace("/all.html");
+      };
+      form.addEventListener("submit", () => {
+        if (article_id !== null) {
+          updateBlog();
+        } else {
+          createPost();
         }
       });
     </script>
     <script>
-      // let article_id = new URLSearchParams(window.location.search).get("id");
-// let form2 = document.getElementById("add");
-// if(article_id !== null ){
-//   console.log("BLog ID = "+article_id);
-//   call_article();
-  
+      //       let article_id = new URLSearchParams(window.location.search).get("id");
+      // let form2 = document.getElementById("add");
+      // if(article_id !== null ){
+      //   console.log("BLog ID = "+article_id);
+      //   call_article();
 
-// }
-// async function call_article() {
-//   let res = await fetch(`http://localhost:8000/blogs/${article_id}`)
-//   article = await res.json()
-// form2.title.value = article.title;
-// form2.body.value = article.body;
-// }
-//     </script>
+      // }
+      // async function call_article() {
+      //   let res = await fetch(`http://localhost:8000/blogs/${article_id}`)
+      //   article = await res.json()
+      // form2.title.value = article.title;
+      // form2.body.value = article.body;
+      // }
+      //
+    </script>
   </body>
 </html>

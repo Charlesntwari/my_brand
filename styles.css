@@ -73,10 +73,10 @@ textarea {
   margin: 10px;
 }
 .post p {
-  margin-top: 0;
+  margin-top: 10px;
 }
 .post a {
-  color:#336699;
+  color:#fff;
 }
 img{
     object-fit: cover;
@@ -86,4 +86,5 @@ img{
     border-radius: 10px;
     display: block;
     transition: transform 0.5s;
+    margin: 20px auto;
 }

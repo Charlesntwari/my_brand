@@ -122,30 +122,7 @@
           <div class="container">
               <h2 class="sub-title">Blog</h2>
               <div class="blog-list" id="blog-list">
-                  <!-- <div class="blog">
-                      <img src="./images/socialmedia.jfif" alt="blog One">
-                      <div class="layer">
-                          <h3>Social Media App</h3>
-                          <p>Social media apps are applications which can either be downloaded and stored on your phone or tablet, or streamed through your internet browser.</p>
-                          <a href="blogview.html" class="btn">Learn more</a>
-                      </div>
-                  </div> -->
-                  <!-- <div class="blog">
-                      <img src="./images/marketing.jfif" alt="blog Two">
-                      <div class="layer">
-                          <h3>Digital Marketing</h3>
-                          <p> Is the promotion of brands to connect with potential customers using the internet and other forms of digital communication.</p>
-                          <a href="#" class="btn">Learn more</a>
-                      </div>
-                  </div>
-                  <div class="blog">
-                      <img src="./images/shopping.jfif" alt="blog Three">
-                      <div class="layer">
-                          <h3>online Shopping App</h3>
-                          <p>Shopping apps are designed to make it easy for customers to find and buy the products they need.</p>
-                          <a href="#" class="btn">Learn more</a>
-                      </div>
-                  </div> -->
+                  
               </div>
               <a href="#" class="btn">View more</a>
           </div>
@@ -160,13 +137,10 @@
                       <p><i class="fas fa-phone-square-alt"></i>0786207360</p>
                       <div class="socail-media-icons">
                           <a href=""><i class="fab fa-twitter-sqaure"></i></a>     
-                          <a href=""><i class="fab fa-linkedin"></i></a>
+                          <a href="https://www.linkedin.com/in/charles-ntwari-80617322b/"><i class="fab fa-linkedin"></i></a>
                           <a href=""><i class="fab fa-brands fa-instagram"></i></a> 
                           <a href="https://github.com/Charlesntwari" target="_blank"><i class="fa-brands fa-github"></i></a> 
                           <a href=""><i class="fab fa-facebook"></i></a>
-                      </div> 
-                      <div>
-                          <a href="#"class="btn btn2">SUBSCRIBE</a>
                       </div>
                   </div>  
                   <div class="contact-right">
@@ -296,7 +270,7 @@
             email: form1.email.value,
             message: form1.message.value,
         };
-        await fetch("http://localhost:8000/query", {
+        await fetch("http://localhost:8000/Querry", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(content),
@@ -307,6 +281,7 @@
       </script>
       <!-- Blog scrippt -->
       <script>
+        
         const container = document.querySelector("#blog-list");
             const renderPost = async ()=>{
                 const url = ('http://localhost:8000/blogs');
