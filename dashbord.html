@@ -19,7 +19,7 @@
                      <p class="tab-links formtab" onclick="opentab()"><a href="all.html" >Manage Blogs</a></p>
                      <p class="tab-links formtab" onclick="opentab()"><a href="Query.html" >Queries</a></p>
                   </div>
-                  <a href="index.html"class="btn">Log out</a>
+                  <a href="#" onclick="logout()"class="btn">Log out</a>
                </div> 
                   <form onsubmit="displayData()">
                      <table class="tab-contents active-tab users" id="users">
@@ -43,6 +43,15 @@
       </div>
    
       <script>
+         const token= localStorage.getItem('token');
+         const userType = localStorage.getItem('userType')
+         window.addEventListener('DOMContentLoaded', () => {
+            if (!token && userType != 'admin'){
+               location.replace('./login.html')
+            }
+
+         });
+         window.addEventListener('')
          const tabLinks = document.getElementsByClassName('tab-links');
          const tabContents = document.getElementsByClassName('tab-contents');
          function opentab(tabName){
@@ -54,6 +63,11 @@
                }
             event.currentTarget.classList.add('active-link');
             document.getElementById(tabName).classList.add('active-tab');
+         }
+         function logout () {
+            localStorage.removeItem('token')
+            localStorage.removeItem('userType')
+            location.replace('./index.html')
          }
       </script>
       <script type="text/javascript" src="authentication.js"></script>
