@@ -78,22 +78,3 @@ function signIn(e) {
 }
 
 
-let tbbody = document.querySelector("tbody");
-async function displayquery() {
-  tbody.innerHTML = "";
-  const response = await fetch("http://localhost:8000/querries");
-  const res = await response.json();
-  const users = res.data;
-  users.forEach((user, i) => {
-    tbbody.innerHTML += `<tr>
-   <td>${++i}</td>
-   <td>${user.name}</td>
-   <td>${user.email}</td>
-   <td>${user.message}</td>
-   <td>
-   <button class="btn3" onclick="deleteUser('${user.email}')">Delete</button>
-   </td>
-   </tr>
-   `;
-  });
-}

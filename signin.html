@@ -88,7 +88,7 @@
             console.log(result);
             if (result.status == 201) {
               alert("Your Account created Successfuly");
-              window.open("login.html", "_self");
+              location.href = "/index.html";
             } else {
               alert(result.message);
               return false;
