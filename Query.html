@@ -10,15 +10,14 @@
     <div class="container-query">
     <div class="query-page">
         <a class="btn" href="dashbord.html">Go Back</a>
-        <form onsubmit="sms()">
+        <form onclick="displayQuerry()">
             <table id="querry">
               <thead>
                 <tr>
                 <th>No</th>
-                <th>Full Name</th>
+                <th width>Full Name</th>
                 <th>email</th>
                 <th>message</th>
-                <th>action</th>
                 </tr>
               </thead>
               <tbody>
@@ -30,22 +29,45 @@
     </div>
     </div>
   <script>
+  window.addEventListener("DOMContentLoaded", () => displayQuerry());
+  
+let tbbody = document.querySelector("tbody");
+async function displayQuerry() {
+  tbbody.innerHTML = "";
+  const response = await fetch("http://localhost:8000/querries");
+  const res = await response.json();
+  const users = res.data;
+  users.forEach((querry, i) => {
+    tbbody.innerHTML += `<tr>
+   <td>${++i}</td>
+   <td>${querry.name}</td>
+   <td>${querry.email}</td>
+   <td>${querry.message}</td>
+   </tr>
+   `;
+  });
+}
+</script>
+  </body>
+</html>
+
+
+<!-- <script>
     const containerQuery = document.querySelector(".query-page");
-// const id = new URLSearchParams(window.location.search).get('id');
+    const id = new URLSearchParams(window.location.search).get('id');
 //const deleteBtn = document.querySelector('.query-btn')
     const getQuery = async () => {
-    const url = await fetch(" http://localhost:3000/query");
+    const url = await fetch(" http://localhost:8000/querry");
     const res = await url.json();
     let queryContent = "";
 
     res.forEach((data) => {
     queryContent += `
     <div class="contact">
-    <div class="contact-right">
-    <h5 class="user-name">${data.name}</h5>
-    <h5 class="user-email">${data.email}</h5>
-    <p>${data.message}</p>
-    <a href class="query-btn" onclick=deleteBtn(${data.id})>Delete</a>
+    <div">${querry.data.name}</h5>
+    <h5 class="us>${querry.data.email}</h5>
+    <p>${querry.data.message}</p>
+    <a h class="contact-right">
 
 
     </div>
@@ -56,7 +78,7 @@
     };
 
     const deleteBtn = async (id) => {
-    const res = await fetch("http://localhost:3000/query/" + id, {
+    const res = await fetch("http://localhost:3000/querry/" + id, {
     method: "DELETE",
     });
 
@@ -64,6 +86,4 @@
     };
 
     window.addEventListener("DOMContentLoaded", () => getQuery());
-  </script>
-  </body>
-</html>
+  </script> -->
