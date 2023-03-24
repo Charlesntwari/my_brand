@@ -1,46 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-       <meta charset="UTF-8">
-       <title>Charles | sign up</title>
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="signin.css" type="text/css">
-    </head>
-    <body>
-        <div id="admin">
-            <div class="container">
-                <div class="signin">
-                    <form role="form" name="createAccount"id="createAccount"onsubmit="signUpForm(event);">
-                        <h2>sign up</h2>
-                        <div class="input-Control">
-                        <input type="text" name="fullname" id="fullname" placeholder="full name">
-                        <div class="error"></div>
-                        </div>
-                        <div class="input-Control">
-                        <input type="email" name="email" id="email" placeholder="Your email">
-                        <div class="error"></div>
-                        </div>
-                        <div class="input-Control">
-                        <input type="text" name="username" id="username" placeholder="Username">
-                        <div class="error"></div>
-                        </div>
-                        <div class="input-Control">
-                        <input type="password" name="Password" id="password" placeholder="Your password">
-                        <div class="error"></div>
-                        </div>
-                        <!-- <div class="input-Control">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Charles | sign up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signin.css" type="text/css" />
+  </head>
+  <body>
+    <div id="admin">
+      <div class="container">
+        <div class="signin">
+          <form
+            role="form"
+            name="createAccount"
+            id="createAccount"
+            onsubmit="signUpForm(event);"
+          >
+            <h2>sign up</h2>
+            <div class="input-Control">
+              <input
+                type="text"
+                name="fullname"
+                id="fullname"
+                placeholder="full name"
+              />
+              <div class="error"></div>
+            </div>
+            <div class="input-Control">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Your email"
+              />
+              <div class="error"></div>
+            </div>
+            <div class="input-Control">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+              />
+              <div class="error"></div>
+            </div>
+            <div class="input-Control">
+              <input
+                type="password"
+                name="Password"
+                id="password"
+                placeholder="Your password"
+              />
+              <div class="error"></div>
+            </div>
+            <!-- <div class="input-Control">
                         <label>re-type password</label>
                         <input type="password" name="Password" id="password2" placeholder="Your password">
                         <div class="error"></div>
                         </div> -->
-                        <button class="btn" id="sign-in">Sign in</button>
-                    </form>
-                    <a href="index.html">Go Back</a>
-                </div>        
-            </div>
+            <button class="btn" id="sign-in">Sign in</button>
+          </form>
+          <a href="index.html">Go Back</a>
         </div>
-        <!-- <script type="text/javascript" src="authentication.js"></script> -->
-        <script>
+      </div>
+    </div>
+    <!-- <script type="text/javascript" src="authentication.js"></script> -->
+    <script>
       const signUpForm = (e) => {
         e.preventDefault();
         var myHeaders = new Headers();
@@ -72,6 +97,5 @@
           .catch((error) => console.log("error", error));
       };
     </script>
-    </body>
+  </body>
 </html>
-

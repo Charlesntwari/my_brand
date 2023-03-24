@@ -12,7 +12,7 @@
       <div id="header">
           <div class="container">
               <nav>
-                  <h1 class="logo"><a href="admin.html" ><span>C</span>HARLES</a></h1>
+                  <h1 class="logo"><a href="" ><span>C</span>HARLES</a></h1>
                   <ul id="sidemenu">
                       <li><a href="#header" id="hom">Home</a></li>
                       <li><a href="#about" >About</a></li>
@@ -203,10 +203,6 @@
             {
              // e.preventDefault();
              form.reset();
-             resp.style.display = "block";
-             setTimeout(function(){
-             resp.style.display = "none";
-             },5000)
             })
              //validating names and message
           name.addEventListener('focusout', function()
@@ -261,24 +257,33 @@
             })
       </script>
       <!-- Querries -->
-      <script>
-        const form1 = document.querySelector("form");
-        const sms= async (e) => {
-        e.preventDefault();
-        const content = {
-            name: form1.name.value,
-            email: form1.email.value,
-            message: form1.message.value,
-        };
-        await fetch("http://localhost:8000/Querry", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(content),
-        });
-        alert("sent successfully");
-        };
-        form1.addEventListener("submit", sms);
-      </script>
+   <script>
+  const form1 = document.querySelector("form");
+  const sms = async (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+    
+    const content = {
+      name: form1.names.value,
+      email: form1.emails.value,
+      message: form1.textarea.value,
+    };
+    
+    console.log(content);
+    
+    await fetch("http://localhost:8000/querry", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(content), // Fix typo "doc" -> "content"
+    });
+    
+    alert("Sent successfully");
+    
+    form1.reset(); // Clear the form input fields
+  };
+  
+  form1.addEventListener("submit", sms);
+</script>
+
       <!-- Blog scrippt -->
       <script>
         

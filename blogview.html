@@ -65,21 +65,74 @@
       window.addEventListener("DOMContentLoaded", () => getOneById());
     </script>
     <!-- getting comment -->
-    <script>
-      window.addEventListener("DOMContentLoaded", () => getComment());
-    </script>
+    <!-- <script>
+        const _id = new URLSearchParams(window.location.search).get("id");
+        const containe = document.querySelector("#comment");
+        const getComment = async () => {
+          const url = await fetch(" http://localhost:8000/"+_id+ "/comment", {
+          method: "GET",
+          body: JSON.stringify({ "id": _id }),
+          headers: {     'Accept': 'application/json',
+        'Content-Type': 'application/json' },
+        });
+          const res = await url.json();
+          let temp ='' ;
+          res.data.forEach(element => {
+            temp +=`<div>
+          <p>${element.comment}</p>
+          </div>
+            `;
+          }); 
+          containe.innerHTML = temp;
+        };
+        window.addEventListener("DOMContentLoaded", () => getComment());
+      </script> -->
+
     <!-- create comment -->
     <script>
+      const _id = new URLSearchParams(window.location.search).get("id");
+      const containe = document.querySelector("#comment");
+
+      const getComment = async () => {
+        const url = await fetch(`http://localhost:8000/${_id}/comment`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          }
+        });
+
+        const res = await url.json();
+
+        let temp = "";
+
+        res.data.forEach((element) => {
+          temp += `<div>
+        <p>${element.comment}</p>
+      </div>`;
+        });
+
+        containe.innerHTML = temp;
+      };
+
+      window.addEventListener("DOMContentLoaded", () => getComment());
+    </script>
+
+    <script>
       const form = document.querySelector("form");
+      const Id = new URLSearchParams(window.location.search).get("id");
+      console.log(Id);
+
       const createPost = async (e) => {
         e.preventDefault();
-        form.reset();
+
         const doc = {
           user_id: localStorage.getItem("userId"),
           comment: form.commentid.value,
           postedDate: "23/02/2022",
         };
-        await fetch("http://localhost:8000/blogs/" + id + "/comment", {
+        console.log(comment)
+        await fetch("http://localhost:8000/blogs/" + Id + "/comment", {
           method: "POST",
           body: JSON.stringify(doc),
           headers: { "Content-Type": "application/json" },
@@ -87,6 +140,7 @@
         //  window.location.replace('/blogview.html');
       };
       form.addEventListener("submit", createPost);
+      form.reset();
     </script>
   </body>
 </html>
