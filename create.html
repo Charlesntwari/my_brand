@@ -9,19 +9,8 @@
   <body>
     <h1>Create a New Blog</h1>
     <form id="add">
-      <input
-        type="text"
-        name="title"
-        id="title"
-        required
-        placeholder="Blog title"
-      />
-      <textarea
-        name="body"
-        id="body"
-        required
-        placeholder="Blog body"
-      ></textarea>
+      <input type="text" name="title" id="title" required placeholder="Blog title"/>
+      <textarea name="body" id="body" required placeholder="Blog body"></textarea>
       <input type="file" name="image" id="image" placeholder="Blog image" />
       <button onclick="createPost()" class="btn">Create</button>
       <a class="btn" href="dashbord.html">Go Back</a>
@@ -45,7 +34,7 @@
             "Content-Type": "application/json",
           },
         });
-        window.location.replace("/all.html");
+        window.location.replace("./all.html");
       };
       const updateBlog = async (e) => {
         e.preventDefault();
