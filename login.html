@@ -1,77 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Charles | log in</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="login.css" type="text/css" />
-  </head>
-  <body>
-    <div id="admin">
-      <div class="container">
-        <div class="log-in">
-          <a href="index.html">Go Back</a>
-          <form
-            role="form"
-            name="createAccount"
-            id="createAccount"
-            onsubmit="signIn(event)"
-          >
-            <h2>Welcome</h2>
-            <input type="text" name="email" id="email" placeholder="email" />
-            <span></span>
-            <input
-              type="password"
-              name="password"
-              id="passwordd"
-              placeholder="Your password"
-            />
-            <span></span>
-            <button type="submit" class="btn" id="login">Log in</button>
-          </form>
-          <span>Don't have an account</span>
-          <a href="signin.html" class="signup">sign up</a>
-        </div>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charles | Portfolio</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="loginlightmode.css" id="light-mode-stylesheet">
+  <script src="https://kit.fontawesome.com/3318aa34ff.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="./images/aboutme.png" width="32" height="32">
+</head>
+
+<body>
+  <div id="header">
+    <div class="container">
+      <nav>
+        <h1 class="logo"><a href="index.html"><span>C</span>HARLES</a></h1>
+        <button id="light-mode-toggle">Toggle Light/Dark Mode</button>
+      </nav>
+    </div>
+  </div>
+
+  <div id="admin">
+    <div class="container">
+      <div class="log-in">
+        <form role="form" name="createAccount" id="createAccount" onsubmit="signIn(event)">
+          <h2>Welcome</h2>
+          <input type="text" name="email" id="email" placeholder="email" />
+          <span></span>
+          <input type="password" name="password" id="passwordd" placeholder="Your password" />
+          <span></span>
+          <button type="submit" class="btn" id="login">Log in</button>
+        </form>
+        <span>Don't have an account</span>
+        <a href="signin.html" class="signup">sign up</a>
       </div>
     </div>
-    <!-- <script type="text/javascript" src="authentication.js"></script> -->
-    <script>
-      const signIn = (e) => {
-        e.preventDefault();
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        var raw = JSON.stringify({
-          email: document.createAccount.email.value,
-          password: document.createAccount.password.value,
-        });
-        var requestOptions = {
-          method: "POST",
-          headers: myHeaders,
-          body: raw,
-          redirect: "follow",
-        };
-        fetch("http://localhost:8000/login", requestOptions)
-          .then((response) => response.json())
-          .then((result) => {
-            console.log(result);
-            if (result.status == 200) {
-              alert("Your logged in Successfuly");
-              localStorage.setItem("token", JSON.stringify(result.token));
-              if (result.data.role == "admin") {
-                localStorage.setItem("userType", "admin");
-                location.href = "/dashbord.html";
-              } else {
-                localStorage.setItem("userType", "visitor");
-                localStorage.setItem("userId", result.data._id);
+  </div>
 
-                location.href = "/index.html";
-              }
-            } else {
-              alert(result.error);
-            }
-          })
-          .catch((error) => console.log("error", error));
+  <script>
+    const signIn = (e) => {
+      e.preventDefault();
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      var raw = JSON.stringify({
+        email: document.createAccount.email.value,
+        password: document.createAccount.password.value,
+      });
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
       };
-    </script>
-  </body>
+      fetch("http://localhost:8000/login", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+          if (result.status == 200) {
+            alert("Your logged in Successfully");
+            localStorage.setItem("token", JSON.stringify(result.token));
+            if (result.data.role == "admin") {
+              localStorage.setItem("userType", "admin");
+              location.href = "/dashbord.html";
+            } else {
+              localStorage.setItem("userType", "visitor");
+              localStorage.setItem("userId", result.data._id);
+              location.href = "/index.html";
+            }
+          } else {
+            alert(result.error);
+          }
+        })
+        .catch((error) => console.log("error", error));
+    };
+  </script>
+
+  <!-- Add this script at the end of your HTML file -->
+  <script>
+    const lightModeToggle = document.getElementById('light-mode-toggle');
+    const lightModeStylesheet = document.getElementById('light-mode-stylesheet');
+
+    lightModeToggle.addEventListener('click', () => {
+      lightModeStylesheet.toggleAttribute('disabled');
+    });
+  </script>
+</body>
+
 </html>

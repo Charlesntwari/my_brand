@@ -1,0 +1,81 @@
+/* light-mode.css */
+
+body {
+    background: #fff;
+    color: #000;
+}
+
+#header {
+    background-size: cover;
+    background-position: center;
+}
+
+#header h2 span,
+.sub-title,
+.tab-links,
+.blog,
+.blog h3,
+.btn,
+.btn.btn2,
+.layer a {
+    color: #336699;
+}
+
+#header h1 a,
+.nav ul li a:hover,
+.blog:hover img,
+.blog:hover .layer,
+.blog-list a,
+.work-list div a,
+.btn:hover {
+    color: #262626;
+}
+
+.work-list div:hover {
+    background: #336699;
+}
+.work-list div a:hover {
+    color: #fff;
+}
+
+#about,
+#work,
+#Blog,
+#contacts {
+    background: #fff;
+    color: #262626;
+}
+
+.container {
+    padding: 10px 10%;
+}
+
+nav {
+    background: #fff; 
+}
+nav ul li a {
+    color: #080808;
+
+}
+
+.tab-links::after {
+    background: #262626;
+}
+
+.tab-contents,
+.work-list div,
+.contact-right form input,
+.contact-right form textarea,
+.btn,
+.btn.btn2 {
+    background: #fff;
+    color: #262626;
+    border: 2px solid #336699;
+}
+
+.btn:hover,
+.btn.btn2:hover {
+    background: #336699;
+    color: #fff;
+}
+

@@ -8,6 +8,23 @@ body{
     background: #080808;
     color: #fff;
 }
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo{
+    width: 140px;
+}
+.logo span{
+    color: #336699;
+}
+.logo a{
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
 #admin{
     display: flex;
 	align-items: center;
@@ -62,4 +79,20 @@ form input, form textarea{
     color: #fff ;
     background:#336699;
     cursor: pointer;
+}
+#light-mode-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #336699;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.light-mode-toggle:hover {
+    background-color: #265581;
 }

@@ -1,0 +1,47 @@
+/* lightmode.css */
+body {
+    background: #fff;
+    color: #000;
+}
+
+nav {
+    background: #fff;
+}
+
+.logo a {
+    color: #000;
+}
+
+.log-in {
+    background: #f5f5f5;
+    color: #000;
+}
+
+.log-in a {
+    color: #336699;
+}
+
+.signup {
+    color: #336699;
+}
+
+form input,
+form textarea {
+    background: #f0f0f0;
+    color: #000;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    border: 2px solid #336699;
+    color: #000;
+    background: #336699;
+}
+#light-mode-toggle {
+    background: #336699;
+    color: #fff;
+    border: 2px solid #336699;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}

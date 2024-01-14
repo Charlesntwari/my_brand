@@ -25,33 +25,56 @@ nav{
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    padding-right: 20%;
+    padding-top: 10px;
+    background: #080808; 
+    margin-top: -10px;
 }
-.logo{
+
+.logo {
     width: 140px;
+    position: relative;
+    z-index: 1;
+    margin-right: auto; /* This will push the logo to the left */
 }
-.logo span{
+
+.logo span {
     color: #336699;
 }
-.logo a{
+
+.logo a {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
-nav ul li{
-    display: inline-block;
-    list-style: none; 
-    margin: 10px 20px;
+
+nav ul {
+    margin-left: auto; /* This will push the other links to the right */
 }
-nav ul li a{
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
     position: relative;
 }
-nav ul li a:hover{
-    color: #336699;   
+
+nav ul li a:hover {
+    color: #336699;
     transition: 0.4s;
 }
+
 .header-text{
     margin-top: 20%;
     font-size: 30px;
@@ -282,7 +305,7 @@ form .btn .btn2{
     cursor: pointer;
     font-weight: 700;
 }
-.spanmssg{
+.spanmsg {
     display: none;
     color: rgb(202, 25, 25);
     font-size: 12px;
@@ -366,4 +389,18 @@ nav .fas{
     .copyright{
         font-size: 14px;
     }
+}
+#light-mode-toggle {
+    background: #336699;
+    color: #fff;
+    border: 2px solid #336699;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+#light-mode-toggle:hover {
+    background: #262626;
+    border-color: #262626;
 }

@@ -1,101 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Charles | sign up</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="signin.css" type="text/css" />
-  </head>
-  <body>
-    <div id="admin">
-      <div class="container">
-        <div class="signin">
-          <form
-            role="form"
-            name="createAccount"
-            id="createAccount"
-            onsubmit="signUpForm(event);"
-          >
-            <h2>sign up</h2>
-            <div class="input-Control">
-              <input
-                type="text"
-                name="fullname"
-                id="fullname"
-                placeholder="full name"
-              />
-              <div class="error"></div>
-            </div>
-            <div class="input-Control">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Your email"
-              />
-              <div class="error"></div>
-            </div>
-            <div class="input-Control">
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Username"
-              />
-              <div class="error"></div>
-            </div>
-            <div class="input-Control">
-              <input
-                type="password"
-                name="Password"
-                id="password"
-                placeholder="Your password"
-              />
-              <div class="error"></div>
-            </div>
-            <!-- <div class="input-Control">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Charles | sign up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="signin.css" type="text/css" />
+  <link rel="stylesheet" href="signinlightmode.css" id="light-mode-stylesheet">
+</head>
+
+<body>
+  <div id="header">
+    <div class="container">
+      <nav>
+        <h1 class="logo"><a href="index.html"><span>C</span>HARLES</a></h1>
+        <button id="light-mode-toggle">Toggle Light/Dark Mode</button>
+      </nav>
+    </div>
+  </div>
+  <div id="admin">
+    <div class="container">
+      <div class="signin">
+        <form role="form" name="createAccount" id="createAccount" onsubmit="signUpForm(event);">
+          <h2>sign up</h2>
+          <div class="input-Control">
+            <input type="text" name="fullname" id="fullname" placeholder="full name" />
+            <div class="error"></div>
+          </div>
+          <div class="input-Control">
+            <input type="email" name="email" id="email" placeholder="Your email" />
+            <div class="error"></div>
+          </div>
+          <div class="input-Control">
+            <input type="text" name="username" id="username" placeholder="Username" />
+            <div class="error"></div>
+          </div>
+          <div class="input-Control">
+            <input type="password" name="Password" id="password" placeholder="Your password" />
+            <div class="error"></div>
+          </div>
+          <!-- <div class="input-Control">
                         <label>re-type password</label>
                         <input type="password" name="Password" id="password2" placeholder="Your password">
                         <div class="error"></div>
                         </div> -->
-            <button class="btn" id="sign-in">Sign in</button>
-          </form>
-          <a href="index.html">Go Back</a>
-        </div>
+          <button class="btn" id="sign-in">Sign in</button>
+        </form>
+        <a href="login.html">Go Back</a>
       </div>
     </div>
-    <!-- <script type="text/javascript" src="authentication.js"></script> -->
-    <script>
-      const signUpForm = (e) => {
-        e.preventDefault();
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        var raw = JSON.stringify({
-          fullname: document.createAccount.fullname.value,
-          email: document.createAccount.email.value,
-          username: document.createAccount.username.value,
-          password: document.createAccount.password.value,
-        });
-        var requestOptions = {
-          method: "POST",
-          headers: myHeaders,
-          body: raw,
-          redirect: "follow",
-        };
-        fetch("http://localhost:8000/signup", requestOptions)
-          .then((response) => response.json())
-          .then((result) => {
-            console.log(result);
-            if (result.status == 201) {
-              alert("Your Account created Successfuly");
-              location.href = "/index.html";
-            } else {
-              alert(result.message);
-              return false;
-            }
-          })
-          .catch((error) => console.log("error", error));
+  </div>
+  <!-- <script type="text/javascript" src="authentication.js"></script> -->
+  <script>
+    const signUpForm = (e) => {
+      e.preventDefault();
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      var raw = JSON.stringify({
+        fullname: document.createAccount.fullname.value,
+        email: document.createAccount.email.value,
+        username: document.createAccount.username.value,
+        password: document.createAccount.password.value,
+      });
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
       };
-    </script>
-  </body>
+      fetch("http://localhost:8000/signup", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+          if (result.status == 201) {
+            alert("Your Account created Successfuly");
+            location.href = "/index.html";
+          } else {
+            alert(result.message);
+            return false;
+          }
+        })
+        .catch((error) => console.log("error", error));
+    };
+  </script>
+  <script>
+    const lightModeToggle = document.getElementById('light-mode-toggle');
+    const lightModeStylesheet = document.getElementById('light-mode-stylesheet');
+
+    lightModeToggle.addEventListener('click', () => {
+      lightModeStylesheet.toggleAttribute('disabled');
+    });
+  </script>
+</body>
+
 </html>

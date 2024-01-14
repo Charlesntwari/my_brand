@@ -1,315 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Charles | Portfolio</title>
-      <link rel="stylesheet" href="style.css"> 
-      <script src="https://kit.fontawesome.com/3318aa34ff.js" crossorigin="anonymous"></script>
-      <link rel="icon" href="./images/aboutme.png" width="32" height="32">
-   </head>
-   <body>
-      <div id="header">
-          <div class="container">
-              <nav>
-                  <h1 class="logo"><a href="" ><span>C</span>HARLES</a></h1>
-                  <ul id="sidemenu">
-                      <li><a href="#header" id="hom">Home</a></li>
-                      <li><a href="#about" >About</a></li>
-                      <li><a href="#work" >My work</a></li>
-                      <li><a href="#Blog" >Blog</a></li>
-                      <li><a href="#contacts" >Contact</a></li> 
-                      <li><a href="login.html" >Log in</a></li> 
-                      <i class="fas fa-times" onclick="closemenu()"></i>
-                  </ul>
-                  <i class="fas fa-bars" onclick="openmenu()"></i>
-              </nav>
-              <div class="header-text">
-                  <p>Web Developer</p>
-                  <h2>Hi,I'm <span>Charles </span>NTWARI<br>promising Web developer</h2>
-                  </div>
-                      <a href="#" download class="btn btn2">Download CV</a>
-                  </div>
-              </div> 
-          </div>
-      </div>
-      <!-- -----about---------- -->
-      <div id="about">
-          <div class="container">
-              <div class="row">
-                  <div class="about-col-1"> 
-                      <img src="./images/aboutpic.png" alt="me">
-                  </div>
-                  <div class="about-col-2">
-                      <h2 class="sub-title">About Me</h2>
-                      <p>I’m young promising software developer with ambition to become an expert the young generation look up to.</p> 
-                      <div class="tab-titles">
-                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                            <p class="tab-links" onclick="opentab('education')">Education</p>
-                      </div>
-                      <div class="tab-contents active-tab" id="skills">
-                            <ul>
-                                <li>
-                                  <span>UI/UX </span><br>Designing web/App interfaces
-                                </li>
-                                <li>
-                                  <span>Web Development</span><br> web App development
-                                </li>
-                                <li>
-                                  <span>App Development </span><br>Building Android/iOS apps
-                                </li>
-                            </ul>
-                      </div> 
-                      <div class="tab-contents" id="experience">
-                          <ul>
-                              <li>
-                                 <span>2022 - Current </span><br>UI/UX Designer 
-                              </li>
-                              <li>
-                                  <span>2020 - Current</span><br> Computer Science Student at University of Rwanda
-                              <li>
-                                  <span>2017 - 2019 </span><br>Science student
-                              </li>
-                          </ul>
-                      </div>  
-                      <div class="tab-contents" id="education">
-                          <ul>
-                              <li>
-                                  <span>Current</span><br> Andela trainee
-                              </li>
-                              <li>
-                                  <span>2021-2022</span><br>DBMS, OOP in C++, Java programming at UR
-                              </li>
-                              <li>
-                                  <span>2021-2022</span><br>Web Design and Programming in C at UR
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- MY WORK -->
-      <div id="work">
-          <div class="container">
-              <h2 class="sub-title">My WORK</h2>
-              <div class="work-list">
-                  <div>
-                      <h2>Web Design</h2>
-                      <p> <span>Web design refers to the design of websites that are displayed on the internet.</span>
-                          <span>It usually refers to the user experience aspects of website development rather than software development.</span>
-                      </p>
-                      <a href="#">Learn more</a>
-                  </div>
-                  <div>
-                      <h2>App Development</h2>
-                      <p>Mobile application development is the process of creating software applications that run on a mobile device, and a typical mobile application utilizes a network connection to work with remote computing resources..</p>
-                      <a href="#">Learn more</a>
-                  </div> 
-                  <div>
-                      <h2>UI/UX DESIGN</h2>
-                      <p> <span>UI refers to the screens, icons, and other visual elements that you interact with when using a website, app, or others.</span>
-                          <span>UX refers to the entire interaction you have with a product, including how you feel about the interaction.</span>
-                      </p>
-                      <a href="#">Learn more</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- -------Blog--------- -->
-      <div id="Blog">
-          <div class="container">
-              <h2 class="sub-title">Blog</h2>
-              <div class="blog-list" id="blog-list">
-                  
-              </div>
-              <a href="#" class="btn">View more</a>
-          </div>
-      </div>
-      <!-- Contacts -->
-      <div id="contacts">
-          <div class="container">
-              <div class="row">
-                  <div class="contact-left">
-                      <h2 class="sub-title">Contact Me</h2>
-                      <p> <i class="fas fa-paper-plane"></i>ntwarichar@gmail.com</p>
-                      <p><i class="fas fa-phone-square-alt"></i>0786207360</p>
-                      <div class="socail-media-icons">
-                          <a href=""><i class="fab fa-twitter-sqaure"></i></a>     
-                          <a href="https://www.linkedin.com/in/charles-ntwari-80617322b/"><i class="fab fa-linkedin"></i></a>
-                          <a href=""><i class="fab fa-brands fa-instagram"></i></a> 
-                          <a href="https://github.com/Charlesntwari" target="_blank"><i class="fa-brands fa-github"></i></a> 
-                          <a href=""><i class="fab fa-facebook"></i></a>
-                      </div>
-                  </div>  
-                  <div class="contact-right">
-                      <form onsubmit="sms()">
-                          <input type="text" name="name" id="names" placeholder="Your name" required>
-                          <span id="spanmssg" class="spanmssg namespan">*please enter valid name</span>
-                          <input type="email" name="email" id="emails" placeholder="Your email" required>
-                          <span class="spanmssg emailspan">*Please enter valid email</span>
-                          <textarea name="message" id="textarea" rows="6" placeholder="Your message"></textarea>
-                          <span class="spanmssg mssgspan">*Please enter a message to send!</span>
-                          <button class="btn btn2">Submit</button>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="copyright">
-          <p>Copyright &copy;Charles </p>
-      </div>
 
-      <script>
-          const tabLinks = document.getElementsByClassName('tab-links');
-          const tabContents = document.getElementsByClassName('tab-contents');
-          function opentab(tabName){
-              for(tabLink of tabLinks){
-                  tabLink.classList.remove('active-link');
-                }
-              for(tabContent of tabContents){
-                  tabContent.classList.remove('active-tab');
-                }
-              event.currentTarget.classList.add('active-link');
-              document.getElementById(tabName).classList.add('active-tab');
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lightmode.css" id="light-mode-stylesheet">
+    <script src="https://kit.fontawesome.com/3318aa34ff.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="./images/aboutme.png" width="32" height="32">
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <h1 class="logo"><a href="index.html"><span>C</span>HARLES</a></h1>
+                <ul id="sidemenu">
+                    <li><a href="#header" id="hom">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">My work</a></li>
+                    <li><a href="#Blog">Blog</a></li>
+                    <li><a href="#contacts">Contact</a></li>
+                    <li><a href="login.html">Log in</a></li>
+                    <button id="light-mode-toggle">Toggle Light/Dark Mode</button>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Web Developer</p>
+                <h2>Hi, I am <span>Charles </span>NTWARI<br>thriving Software Engineer</h2>
+            </div>
+            <a href="/images/my_cv.pdf" download class="btn btn2">Download CV</a>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- -----about---------- -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="./images/aboutpic.png" alt="me">
+                </div>
+                <div class="about-col-2">
+                    <h2 class="sub-title">About Me</h2>
+                    <p>I am a dynamic and aspiring software developer with a passion for becoming a trusted expert,
+                        inspiring the next generation in the field.</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li>
+                                <span>javaScript && TypeScript</span><br>Skilled at creating dynamic and interactive
+                                websites using both JavaScript and TypeScript
+                            </li>
+                            <li>
+                                <span>React && Next.js</span><br>As a developer, skilled in React for dynamic front-end
+                                and Next.js for server-side rendering.
+                            </li>
+                            <li>
+                                <span>Nodejs && Express</span><br> Skilled in Node.js and Express.js for efficient and
+                                scalable server-side development.
+                            </li>
+                            <li>
+                                <span>MongoDB && PostgreSQL</span><br>As a software developer, adept in MongoDB for
+                                flexible NoSQL data storage and PostgreSQL for robust relational databases.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li>
+                                <span>09/2023 - 12/2023 </span><br>Full Stack Developer Intern in Andela
+                            </li>
+                            <li>
+                                <span>01/2023 - 07/2023</span><br> Full Stack Developer trainee in Andela Program (ATLP)
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li>
+                                <span>Institution</span><br> University of Rwanda
+                            </li>
+                            <li>
+                                <span>Major</span><br>Computer Science
+                            </li>
+                            <li>
+                                <span>Duration</span><br>2021 - Current
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MY WORK -->
+    <div id="work">
+        <div class="container">
+            <h2 class="sub-title">My WORK</h2>
+            <div class="work-list">
+                <div>
+                    <h2>Web Design</h2>
+                    <p> <span>Web design refers to the design of websites that are displayed on the internet.</span>
+                        <span>It usually refers to the user experience aspects of website development rather than
+                            software development.</span>
+                    </p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <h2>App Development</h2>
+                    <p>Mobile application development is the process of creating software applications that run on a
+                        mobile device, and a typical mobile application utilizes a network connection to work with
+                        remote computing resources..</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <h2>UI/UX DESIGN</h2>
+                    <p> <span>UI refers to the screens, icons, and other visual elements that you interact with when
+                            using a website, app, or others.</span>
+                        <span>UX refers to the entire interaction you have with a product, including how you feel about
+                            the interaction.</span>
+                    </p>
+                    <a href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -------Blog--------- -->
+    <div id="Blog">
+        <div class="container">
+            <h2 class="sub-title">Blog</h2>
+            <div class="blog-list" id="blog-list">
+
+            </div>
+            <a href="#" class="btn">View more</a>
+        </div>
+    </div>
+    <!-- Contacts -->
+    <div id="contacts">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h2 class="sub-title">Contact Me</h2>
+                    <p> <i class="fas fa-paper-plane"></i>ntwarichar@gmail.com</p>
+                    <p><i class="fas fa-phone-square-alt"></i>+250786207360</p>
+                    <div class="socail-media-icons">
+                        <a href=""><i class="fab fa-twitter-sqaure"></i></a>
+                        <a href="https://www.linkedin.com/in/charles-ntwari"><i class="fab fa-linkedin"></i></a>
+                        <a href=""><i class="fab fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/Charlesntwari" target="_blank"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href=""><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form onsubmit="sms()">
+                        <input type="text" name="name" id="names" placeholder="Your name" required>
+                        <span id="spanmssg" class="spanmssg namespan">*please enter valid name</span>
+                        <input type="email" name="email" id="emails" placeholder="Your email" required>
+                        <span class="spanmssg emailspan">*Please enter valid email</span>
+                        <textarea name="message" id="textarea" rows="6" placeholder="Your message"></textarea>
+                        <span class="spanmssg mssgspan">*Please enter a message to send!</span>
+                        <button class="btn btn2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright &copy;Charles </p>
+    </div>
+
+    <script>
+        const tabLinks = document.getElementsByClassName('tab-links');
+        const tabContents = document.getElementsByClassName('tab-contents');
+        function opentab(tabName) {
+            for (tabLink of tabLinks) {
+                tabLink.classList.remove('active-link');
             }
-      </script>
-      <script>
-          const sidemenu = document.getElementById("sidemenu");
-          function openmenu(){
-          // declaring nav items:
-              const hom = document.getElementById('hom');
-              sidemenu.style.right = '0px';
+            for (tabContent of tabContents) {
+                tabContent.classList.remove('active-tab');
             }
-          function closemenu(){
-              sidemenu.style.right = '-200px';
-            }
-      </script>
-      <script>
-          //checking for a valid email, names and message
-          const emailCheck = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-          const checkString = /^[a-zA-Z0-9]+$/;
-          // const mssgCheck =   /[^a-zA-Z0-9\s\:]*/;
-          //email, name and message variables
-          const name = document.getElementById('name');
-          const email = document.getElementById('email');
-          const message = document.getElementById('textarea');
-          const spans = document.querySelectorAll('.spanmssg');
-          const form = document.querySelector('form');
-          const resp = document.querySelector('#resp');
-          //form validation
-          form.addEventListener('submit',(e)=>
-            {
-             // e.preventDefault();
-             form.reset();
-            })
-             //validating names and message
-          name.addEventListener('focusout', function()
-            {  
-              const checkString = /^[a-zA-Z0-9]+$/;
-              // const checkString2 = /^[a-z\sA-Z0-9]+$/ trying to check for spaced names
-              if(!checkString.test(name.value))
-               {
-                  spans[0].style.display = 'block';
-                  form.addEventListener('submit',(e)=>{
-                  e.preventDefault();
-                  })
-               }
-              else
-               { 
-                  spans[0].style.display = 'none' 
-               }
-           })
-            //validating email
-          email.addEventListener('focusout', function()
-          {
-            if(!emailCheck.test(email.value))
-            {
-                // alert('enter valid email');
-                spans[1].style.display = 'block';
-                form.addEventListener('submit',(e)=>
-                {
-                  e.preventDefault();
+            event.currentTarget.classList.add('active-link');
+            document.getElementById(tabName).classList.add('active-tab');
+        }
+    </script>
+    <script>
+        const sidemenu = document.getElementById("sidemenu");
+        function openmenu() {
+            // declaring nav items:
+            const hom = document.getElementById('hom');
+            sidemenu.style.right = '0px';
+        }
+        function closemenu() {
+            sidemenu.style.right = '-200px';
+        }
+    </script>
+    <script>
+        //checking for a valid email, names and message
+        const emailCheck = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const checkString = /^[a-zA-Z0-9]+$/;
+        // const mssgCheck =   /[^a-zA-Z0-9\s\:]*/;
+        //email, name and message variables
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const message = document.getElementById('textarea');
+        const spans = document.querySelectorAll('.spanmssg');
+        const form = document.querySelector('form');
+        const resp = document.querySelector('#resp');
+        //form validation
+        form.addEventListener('submit', (e) => {
+            // e.preventDefault();
+            form.reset();
+        })
+        //validating names and message
+        name.addEventListener('focusout', function () {
+            const checkString = /^[a-zA-Z0-9]+$/;
+            // const checkString2 = /^[a-z\sA-Z0-9]+$/ trying to check for spaced names
+            if (!checkString.test(name.value)) {
+                spans[0].style.display = 'block';
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
                 })
             }
-            else
-            {
+            else {
+                spans[0].style.display = 'none'
+            }
+        })
+        //validating email
+        email.addEventListener('focusout', function () {
+            if (!emailCheck.test(email.value)) {
+                // alert('enter valid email');
+                spans[1].style.display = 'block';
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                })
+            }
+            else {
                 spans[1].style.display = 'none';
             }
-         })
-          // validating message box
-         message.addEventListener('focusout', ()=>
-           {
-              const messageCheck = /^\s+/;
-              if( message.value ==="" || messageCheck.test(message.value))
-               {
-                  spans[2].style.display= 'block';
-                  form.addEventListener('submit',(e)=>
-                   {
-                      e.preventDefault();
-                   })
-               }
-              else
-               {
-                  spans[2].style.display= 'none';
-               }
-            })
-      </script>
-      <!-- Querries -->
-   <script>
-  const form1 = document.querySelector("form");
-  const sms = async (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-    
-    const content = {
-      name: form1.names.value,
-      email: form1.emails.value,
-      message: form1.textarea.value,
-    };
-    
-    console.log(content);
-    
-    await fetch("http://localhost:8000/querry", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(content), // Fix typo "doc" -> "content"
-    });
-    
-    alert("Sent successfully");
-    
-    form1.reset(); // Clear the form input fields
-  };
-  
-  form1.addEventListener("submit", sms);
-</script>
+        })
+        // validating message box
+        message.addEventListener('focusout', () => {
+            const messageCheck = /^\s+/;
+            if (message.value === "" || messageCheck.test(message.value)) {
+                spans[2].style.display = 'block';
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                })
+            }
+            else {
+                spans[2].style.display = 'none';
+            }
+        })
+    </script>
+    <!-- Querries -->
+    <script>
+        const form1 = document.querySelector("form");
+        const sms = async (e) => {
+            e.preventDefault(); // Prevent the default form submission behavior
 
-      <!-- Blog scrippt -->
-      <script>
-        
+            const content = {
+                name: form1.names.value,
+                email: form1.emails.value,
+                message: form1.textarea.value,
+            };
+
+            console.log(content);
+
+            await fetch("http://localhost:8000/querry", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(content), // Fix typo "doc" -> "content"
+            });
+
+            alert("Sent successfully");
+
+            form1.reset(); // Clear the form input fields
+        };
+
+        form1.addEventListener("submit", sms);
+    </script>
+
+    <!-- Blog scrippt -->
+    <script>
+
         const container = document.querySelector("#blog-list");
-            const renderPost = async ()=>{
-                const url = ('http://localhost:8000/blogs');
-                const res = await fetch(url);
-                const post = await  res.json();
-                console.log(post)
-                let blog =''
-                // post.data.forEach(posts => {
-                    for (let i = 0;i<3;i++){
-                     console.log(post.data[i]);
-                    blog +=`
+        const renderPost = async () => {
+            const url = ('http://localhost:8000/blogs');
+            const res = await fetch(url);
+            const post = await res.json();
+            console.log(post)
+            let blog = ''
+            // post.data.forEach(posts => {
+            for (let i = 0; i < 3; i++) {
+                console.log(post.data[i]);
+                blog += `
                      <div class="blog">
                       <img src = ${post.data[i].image}>
                       <div class="layer">
                           <h3>${post.data[i].title}</h3>
-                          <p>${post.data[i].body.slice(0,100)}...</p>
+                          <p>${post.data[i].body.slice(0, 100)}...</p>
                           <a href="blogview.html?id=${post.data[i]._id}" class="btn">learn more</a>
                       </div>
                   </div>`
-                };
-                container.innerHTML = blog
-            }
-            addEventListener('DOMContentLoaded' ,()=>renderPost())
-      </script>
-  </body>
+            };
+            container.innerHTML = blog
+        }
+        addEventListener('DOMContentLoaded', () => renderPost())
+    </script>
+    <script>
+        const lightModeToggle = document.getElementById('light-mode-toggle');
+        const lightModeStylesheet = document.getElementById('light-mode-stylesheet');
+
+        lightModeToggle.addEventListener('click', () => {
+            lightModeStylesheet.toggleAttribute('disabled');
+        });
+    </script>
+</body>
+
 </html>

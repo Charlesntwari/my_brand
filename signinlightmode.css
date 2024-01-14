@@ -1,4 +1,4 @@
-/* darkmode.css */
+/* lightmode.css */
 
 * {
     margin: 0;
@@ -8,27 +8,26 @@
 }
 
 body {
-    background: #080808;
-    color: #fff;
-}
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-.logo{
-    width: 140px;
-}
-.logo span{
-    color: #336699;
-}
-.logo a{
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
+    background: #fff;
+    color: #000;
 }
 
+nav {
+    background: #fff;
+}
+
+.logo a {
+    color: #000;
+}
+
+.log-in {
+    background: #f5f5f5;
+    color: #000;
+}
+
+.log-in a {
+    color: #336699;
+}
 .container {
     padding: 10px 30px;
     width: 40vw;
@@ -42,7 +41,7 @@ nav{
 }
 
 .signin {
-    background: #171717;
+    background: #f0f0f0;
     border-radius: 20px;
     padding: 20px;
     margin: 10px;
@@ -60,7 +59,7 @@ nav{
     font-size: 35px;
     font-weight: 600;
     margin-bottom: 30px;
-    color: #fff;
+    color: #000;
 }
 
 form input,
@@ -68,10 +67,10 @@ form textarea {
     width: 100%;
     border: 0;
     outline: none;
-    background: #262626;
+    background: #f5f5f5;
     padding: 10px;
     margin: 10px 0;
-    color: #fff;
+    color: #000;
     font-size: 20px;
     border-radius: 6px;
 }
@@ -87,22 +86,6 @@ form textarea {
     color: #fff;
     background: #336699;
     cursor: pointer;
-}
-#light-mode-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #336699;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    outline: none;
-}
-
-.light-mode-toggle:hover {
-    background-color: #265581;
 }
 
 @media only screen and (max-width: 800px) {
