@@ -1,13 +1,10 @@
-/* darkmode.css */
-
-* {
+*{
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
-
-body {
+body{
     background: #080808;
     color: #fff;
 }
@@ -28,17 +25,14 @@ nav{
     text-decoration: none;
     cursor: pointer;
 }
-
-.container {
-    padding: 10px 30px;
-    width: 40vw;
-}
-
-#admin {
+#admin{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+.container{
+    padding: 10px 10%;
 }
 
 .signin {
@@ -89,20 +83,18 @@ form textarea {
     cursor: pointer;
 }
 #light-mode-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #336699;
+    background: #336699;
     color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
+    border: 2px solid #336699;
+    padding: 10px 12px;
     cursor: pointer;
-    outline: none;
+    border-radius: 50%;
+    transition: background 0.3s, color 0.3s;
 }
 
-.light-mode-toggle:hover {
-    background-color: #265581;
+#light-mode-toggle:hover {
+    background: #262626;
+    border-color: #262626;
 }
 
 @media only screen and (max-width: 800px) {

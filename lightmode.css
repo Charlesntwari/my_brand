@@ -53,7 +53,8 @@ body {
 nav {
     background: #fff; 
 }
-nav ul li a {
+nav ul li a,
+.blog p {
     color: #080808;
 
 }
@@ -73,6 +74,8 @@ nav ul li a {
     border: 2px solid #336699;
 }
 
+.copyright,
+.work-list div:hover,
 .btn:hover,
 .btn.btn2:hover {
     background: #336699;

@@ -37,11 +37,3 @@ form textarea {
     color: #000;
     background: #336699;
 }
-#light-mode-toggle {
-    background: #336699;
-    color: #fff;
-    border: 2px solid #336699;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-}
