@@ -42,7 +42,7 @@
                   <a href="/details.html?id=${ post._id }">Read more...</a>
                   <div>
                     <button class="btn deleteBtn" onclick="deleteBtn('${post._id}')">delete</button>
-                    <button class="btn updateBtn" onclick="window.location = '/create.html?id=${post._id}"><a href='/create.html?id=${post._id}'>update </a></button>
+                    <button class="btn updateBtn" onclick="fetchAndRedirect('${post._id}')">Update</button>
                   </div>
               </div>
           `
