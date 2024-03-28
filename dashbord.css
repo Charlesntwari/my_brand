@@ -1,43 +1,58 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
-body{
-    background: #080808;
+
+body {
+    background: linear-gradient(to bottom, #080808, #1a1a1a); /* Gradient background */
     color: #fff;
 }
-.container{
+
+.container {
     padding: 50px;
 }
-.row{
-    display: flex; 
+
+.row {
+    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width:100%;
+    width: 100%;
 }
-.sub-title{
+
+.sub-title {
     font-size: 40px;
-    font-weight: 600; 
+    font-weight: 600;
     color: #fff;
+    margin-bottom: 20px;
 }
-.tab-titles{
-    display: block;
-    /* margin: 20px 0 40px; */
+
+.tab-titles {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
 }
-.tab-links{
+
+.tab-links {
     margin-right: 50px;
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
-    position: relative; 
+    position: relative;
+    transition: color 0.3s ease;
 }
-.tab-links a{
+
+.tab-links a {
     color: #fff;
     text-decoration: none;
 }
-.tab-links::after{
+
+.tab-links:hover {
+    color: #ccc;
+}
+
+.tab-links::after {
     content: '';
     width: 0;
     height: 3px;
@@ -45,103 +60,100 @@ body{
     position: absolute;
     left: 0;
     bottom: -8px;
-    transition: 0.4s;
+    transition: width 0.4s ease;
 }
-.tab-links.active-link::after{
-    width: 50%;
-}      
-.tab-contents{
+
+.tab-links.active-link::after {
+    width: 100%;
+}
+
+.tab-contents {
     display: none;
 }
-.tab-contents.active-tab{
+
+.tab-contents.active-tab {
     display: block;
 }
-form input, form textarea{
-    width: 100%;
-    border: 0;
-    outline: none;
-    background: #262626;
-    padding: 15px;
-    margin: 15px 0;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 6px;
-}
-.btn{
-    display: block;
-    margin: 30px auto;
-    width: fit-content;
-    border: 2px #336699;
+
+.btn {
+    display: inline-block;
+    border: 2px solid #336699;
     padding: 14px 50px;
     border-radius: 100px;
     text-decoration: none;
-    color: #fff ;
-    background:#336699;
+    color: #fff;
+    background: #336699;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-td .btn3{
-    margin: 2px auto;
-    width: fit-content;
-    border: 2px #336699;
-    padding: 8px 20px;
-    border-radius: 100px;
-    text-decoration: none;
-    color: #fff ;
-    background:#336699;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 400;
+
+.btn:hover {
+    background: #fff;
+    color: #336699;
 }
-.dashbord-left{
+
+.dashbord-left {
     flex-basis: 25%;
     background-color: #262626;
     border-radius: 10px;
-    padding: 10px;
-    width: 100%;
-    margin-left: -20px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
 }
-.dashbord-right{
+
+.dashbord-right {
     flex-basis: 70%;
     width: 100%;
     height: 40vh;
 }
-.bord{
+
+.bord {
     display: block;
 }
-.formtab{
-    font-size: 28px;
+
+.formtab {
+    font-size: 24px;
     font-weight: 700;
     padding-top: 30px;
 }
-.tab-links.active-link.formtab{
-    color:#ababab
+
+.tab-links.active-link.formtab {
+    color: #ababab;
 }
-.tab-links.active-link::after{
-    width: 30%;
+
+.tab-links.active-link::after {
+    width: 100%;
 }
-td {
-  /* border: 1px solid #080808; */
-  text-align: left;
-  padding: 8px;
-  width: 50%;
-  height: 10px;
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Add margin for better separation */
 }
- th{
-  border: 1px solid #080808;
-  text-align: left;
-  padding: 40px;
-  /* width: 20%; */
+
+th, td {
+    border: 1px solid #080808;
+    padding: 15px;
+    text-align: left;
 }
+
+th {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
 tr:nth-child(even) {
-  background-color: #262626;
+    background-color: #262626;
 }
-@media only screen and (max-width: 800px){
-    .dashbord-left, .dashbord-right{
+
+@media only screen and (max-width: 800px) {
+    .dashbord-left,
+    .dashbord-right {
         flex-basis: 100%;
         margin-left: -20px;
-        font-size: 18px;
+        font-size: 16px;
     }
-    th{
-        padding: 4px;
+
+    th {
+        padding: 10px;
     }
 }
