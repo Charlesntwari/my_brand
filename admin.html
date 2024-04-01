@@ -28,27 +28,6 @@
                 </div>        
             </div>
         </div>
-        <!-- <script>
-            function signIn(e) {
-            let email = document.getElementById("email").value;
-            let pwd = document.getElementById("pwd").value;
-            let formData = JSON.parse(localStorage.getItem("formData")) || [];
-            let exist =
-                formData.length &&
-                JSON.parse(localStorage.getItem("formData")).some(
-                (data) =>
-                    data.email.toLowerCase() == email && data.pwd.toLowerCase() == pwd
-                );
-            console.log(exist);
-            if (!exist) {
-                alert("Invalid email or password");
-            } 
-            else {
-                location.href = "dashbord.html";
-            }
-            e.preventDefault();
-            }
-        </script> -->
        <script>
         const signIn = (e) => {
             e.preventDefault();
