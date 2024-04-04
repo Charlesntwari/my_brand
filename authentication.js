@@ -71,24 +71,6 @@ async function displayData() {
   });
 }
 
-// async function deleteUser(userId) {
-//   if (confirm("Are you sure you want to delete this user?")) {
-//     try {
-//       const response = await fetch(`http://localhost:8000/users/${userId}`, {
-//         method: 'DELETE'
-//       });
-//       if (response.ok) {
-//         // User deleted successfully, update the UI
-//         displayData();
-//         console.log("User deleted successfully");
-//       } else {
-//         console.error("Failed to delete user");
-//       }
-//     } catch (error) {
-//       console.error("Error deleting user:", error);
-//     }
-//   }
-// }
 async function deleteUser(userId) {
   if (confirm("Are you sure you want to delete this user?")) {
     try {
